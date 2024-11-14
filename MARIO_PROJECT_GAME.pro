@@ -13,6 +13,7 @@ SOURCES += \
     collectables.cpp \
     enemy.cpp \
     gameover.cpp \
+    level1.cpp \
     main.cpp \
     mainwindow.cpp \
     obstacle.cpp \
@@ -26,6 +27,7 @@ HEADERS += \
     collectables.h \
     enemy.h \
     gameover.h \
+    level1.h \
     mainwindow.h \
     obstacle.h \
     player.h \
