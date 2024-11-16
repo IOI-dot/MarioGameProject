@@ -6,6 +6,7 @@ Gameover::Gameover(QWidget *parent)
     , ui(new Ui::Gameover)
 {
     ui->setupUi(this);
+
 }
 
 Gameover::~Gameover()
