@@ -13,7 +13,6 @@ SOURCES += \
     collectables.cpp \
     enemy.cpp \
     gameover.cpp \
-    main.cpp \
     mainwindow.cpp \
     obstacle.cpp \
     player.cpp \
@@ -34,6 +33,7 @@ HEADERS += \
     store.h
 
 FORMS += \
+    Player.ui \
     gameover.ui \
     mainwindow.ui \
     store.ui

@@ -1,0 +1,13 @@
+release/coins.o
+release/collectables.o
+release/enemy.o
+release/gameover.o
+release/mainwindow.o
+release/obstacle.o
+release/player.o
+release/powerups.o
+release/score.o
+release/store.o
+release/moc_gameover.o
+release/moc_mainwindow.o
+release/moc_store.o

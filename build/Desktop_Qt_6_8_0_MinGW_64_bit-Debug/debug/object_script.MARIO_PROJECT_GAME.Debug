@@ -1,0 +1,13 @@
+debug/coins.o
+debug/collectables.o
+debug/enemy.o
+debug/gameover.o
+debug/mainwindow.o
+debug/obstacle.o
+debug/player.o
+debug/powerups.o
+debug/score.o
+debug/store.o
+debug/moc_gameover.o
+debug/moc_mainwindow.o
+debug/moc_store.o
