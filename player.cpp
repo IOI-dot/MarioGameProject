@@ -21,8 +21,6 @@ Player::Player()
     Playeritem->setPos(20,30);
     // linking the image to the item
     Playeritem->setPixmap(playerimage);
-        // adding the item to the scene;
-    scene()->addItem(Playeritem);
     // this is to make the player (active item) is the focused item to allow it be moved by key presses.
     Playeritem->setFlags(QGraphicsItem::ItemIsFocusable);
     Playeritem->setFocus();
