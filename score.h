@@ -1,4 +1,4 @@
-#ifndef SCORE_H
+/*#ifndef SCORE_H
 #define SCORE_H
 
 #include <QString>
@@ -51,4 +51,4 @@ private:
     QList<Collectable*> collectables;  // List of collectables in the game
 };
 
-#endif // SCORE_H
+#endif // SCORE_H*/

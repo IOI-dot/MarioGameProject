@@ -1,4 +1,4 @@
-#ifndef POWERUPS_H
+/*#ifndef POWERUPS_H
 #define POWERUPS_H
 
 #include <QObject>
@@ -34,4 +34,4 @@ private:
     QTimer *timer;      // Timer to track the duration of the powerup
 };
 
-#endif // POWERUP_H
+#endif // POWERUP_H*/

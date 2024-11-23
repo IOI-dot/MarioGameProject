@@ -1,4 +1,4 @@
-#include "Powerup.h"
+/*#include "Powerup.h"
 #include <QDebug>
 
 Powerup::Powerup(const QString &type, const QString &usage, const QString &effect, int duration, QObject *parent)
@@ -71,3 +71,4 @@ void Powerup::reset() {
     qDebug() << "Powerup reset: " << effect;
 }
 
+*/

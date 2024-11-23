@@ -1,4 +1,4 @@
-#include <QCoreApplication>
+/*#include <QCoreApplication>
 #include <QDebug>
 #include <QPointF>
 #include "Collectable.h"
@@ -51,3 +51,4 @@ int main(int argc, char *argv[])
 
     return a.exec();
 }
+*/

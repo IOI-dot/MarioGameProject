@@ -1,4 +1,4 @@
-#ifndef ENEMY_H
+/*#ifndef ENEMY_H
 #define ENEMY_H
 
 #include "obstacle.h"
@@ -39,3 +39,4 @@ public:
 };
 
 #endif // ENEMY_H
+*/

@@ -1,4 +1,4 @@
-#include "enemy.h"
+/*#include "enemy.h"
 #include "player.h"
 
 Enemy::Enemy(const QString &imagePath, float x, float y, float width, float height)
@@ -91,3 +91,4 @@ void Enemy::update(Player *player)
         }
     }
 }
+*/

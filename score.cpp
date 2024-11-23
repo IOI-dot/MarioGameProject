@@ -1,4 +1,4 @@
-#include "Score.h"
+/*#include "Score.h"
 #include <QDebug>
 
 // Constructor: Initialize score to 0 and highestScore to 0
@@ -38,3 +38,4 @@ void Score::showScore() const {
     qDebug() << "Current Score: " << score;  // Display the current score
     qDebug() << "Highest Score: " << highestScore;  // Display the highest score
 }
+*/
