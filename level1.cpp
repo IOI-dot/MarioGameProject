@@ -82,6 +82,14 @@ void Level1::initLevel()
         obstacles.append(obstacle);
         scene->addItem(obstacle);
     }
+    // Add obstacles to the scene
+    for (int i = 0; i < 5; ++i)
+    {
+        float xPos = 150+ i * 50; // Spread out obstacles
+        Obstacle *obstacle = new Obstacle("C:/Users/Merna/Downloads/blocks.jpg", xPos, 300);
+        obstacles.append(obstacle);
+        scene->addItem(obstacle);
+    }
     // Add the castle at the end of the level
     castle = new QGraphicsPixmapItem();
     QPixmap castleImage("C:/Users/Merna/Downloads/CASLE.png");
@@ -171,7 +179,7 @@ void Level1::updateGame()
         if (player->collidesWithItem(obstacle))
         {
             player->stopMovement(); // Stop movement if player hits an obstacle
-            break; // Exit the loop after stopping the player
+            break;
         }
     }
 
@@ -181,10 +189,10 @@ void Level1::updateGame()
         // Show the message box when Mario reaches the castle
         QMessageBox::information(this, "You Won!", "Congratulations Mario, you have completed the level!");
 
-        // Stop the music when the level ends
+
         musicPlayer->stop();
 
-        gameTimer->stop();  // Stop the game timer
+        gameTimer->stop();
     }
 
     // Update score dynamically
