@@ -12,7 +12,8 @@
 #include <QMediaPlayer>
 #include <QAudioOutput>
 #include <QUrl>
-
+#include "coins.h"
+#include "goomba.h"
 // Constructor
 Level1::Level1(QWidget *parent)
     : QWidget(parent), scene(nullptr), view(nullptr), player(nullptr), ground(nullptr), castle(nullptr), score(0), level(1)
@@ -28,8 +29,8 @@ Level1::~Level1()
     delete player;
     delete gameTimer;
     delete ground;
-    delete musicPlayer;  // Clean up the music player
-    delete audioOutput;  // Clean up the audio output
+    delete musicPlayer;
+    delete audioOutput;
     for (auto obstacle : obstacles)
         delete obstacle;
 }
@@ -41,20 +42,14 @@ void Level1::initLevel()
 
     // Set up the scene
     scene = new QGraphicsScene(this);
-    scene->setSceneRect(0, 0, 800, 600);
+    scene->setSceneRect(0, 0, 3000, 600); // Extended level width
 
     // Set the background image for the scene
     QPixmap backgroundPixmap("C:/Users/Merna/Downloads/sky.png");
     QGraphicsPixmapItem *backgroundItem = new QGraphicsPixmapItem();
-    backgroundItem->setPixmap(backgroundPixmap.scaled(800, 600));
-    backgroundItem->setPos(0, 0); // Position the background
+    backgroundItem->setPixmap(backgroundPixmap.scaled(3000, 600));
+    backgroundItem->setPos(0, 0);
     scene->addItem(backgroundItem);
-
-    // Set up the ground (floor)
-    ground = new QGraphicsRectItem(0, 550, 800, 50); // Ground rectangle (position and size)
-    ground->setBrush(Qt::darkGreen);                 // Ground color (can be textured later)
-    ground->setZValue(1);                            // Ensure ground is above background
-    scene->addItem(ground);
 
     // Set up the view
     view = new QGraphicsView(scene, this);
@@ -67,35 +62,60 @@ void Level1::initLevel()
     scene->addItem(player);
 
     // Add obstacles to the scene
-    for (int i = 0; i < 20; ++i)
-    {
-        float xPos = i * 50; // Spread out obstacles
-        Obstacle *obstacle = new Obstacle("C:/Users/Merna/Downloads/blocks.jpg", xPos, 480);
+    for (int i = 0; i < 80; ++i)
+    {   if (i >= 30 && i <= 33) {
+            continue;
+        }
+
+        float xPos = i * 50;
+        Obstacle *obstacle = new Obstacle("C:/Users/Merna/Downloads/block.png", xPos, 480);
         obstacles.append(obstacle);
         scene->addItem(obstacle);
     }
     // Add obstacles to the scene
-    for (int i = 0; i < 20; ++i)
+    for (int i = 0; i < 80; ++i)
     {
-        float xPos = i * 50; // Spread out obstacles
-        Obstacle *obstacle = new Obstacle("C:/Users/Merna/Downloads/blocks.jpg", xPos, 530);
+       if (i >= 30 && i <= 33) {
+            continue;
+        }
+        float xPos = i * 50;
+        Obstacle *obstacle = new Obstacle("C:/Users/Merna/Downloads/block.png", xPos, 570);
+        obstacles.append(obstacle);
+        scene->addItem(obstacle);
+    }
+
+    for (int i = 0; i < 80; ++i)
+    {
+        if (i >= 30 && i <= 33) {
+            continue;
+        }
+        float xPos = i * 50;
+        Obstacle *obstacle = new Obstacle("C:/Users/Merna/Downloads/block.png", xPos, 525);
         obstacles.append(obstacle);
         scene->addItem(obstacle);
     }
     // Add obstacles to the scene
-    for (int i = 0; i < 5; ++i)
+    for (int i = 0; i < 10; ++i)
     {
-        float xPos = 150+ i * 50; // Spread out obstacles
-        Obstacle *obstacle = new Obstacle("C:/Users/Merna/Downloads/blocks.jpg", xPos, 300);
+        float xPos = 500+i * 50;
+        Obstacle *obstacle = new Obstacle("C:/Users/Merna/Downloads/block.png", xPos, 300);
+        obstacles.append(obstacle);
+        scene->addItem(obstacle);
+    }
+    // Add obstacles to the scene
+    for (int i = 0; i < 7; ++i)
+    {
+        float xPos = 1600+i * 50;
+        Obstacle *obstacle = new Obstacle("C:/Users/Merna/Downloads/block.png", xPos, 300);
         obstacles.append(obstacle);
         scene->addItem(obstacle);
     }
     // Add the castle at the end of the level
     castle = new QGraphicsPixmapItem();
-    QPixmap castleImage("C:/Users/Merna/Downloads/CASLE.png");
-    castleImage = castleImage.scaled(150, 150); // Resize castle image to appropriate size
+    QPixmap castleImage("C:/Users/Merna/Downloads/castle.png");
+    castleImage = castleImage.scaled(150, 150);
     castle->setPixmap(castleImage);
-    castle->setPos(650, 330);  // Position the castle at the end of the level
+    castle->setPos(2800, 330); // Position the castle at the far right
     scene->addItem(castle);
 
     // Set up the score and level labels
@@ -118,7 +138,7 @@ void Level1::initLevel()
     // Set up the game timer
     gameTimer = new QTimer(this);
     connect(gameTimer, &QTimer::timeout, this, &Level1::updateGame);
-    gameTimer->start(16);  // ~60 FPS (16 ms per frame)
+    gameTimer->start(16); // ~60 FPS (16 ms per frame)
 
     // Initialize the media player for background music
     musicPlayer = new QMediaPlayer(this);
@@ -126,25 +146,67 @@ void Level1::initLevel()
 
     // Set up the audio output
     musicPlayer->setAudioOutput(audioOutput);
-    musicPlayer->setSource(QUrl::fromLocalFile("C:/Users/Merna/Downloads/01. Ground Theme.mp3"));  // Replace with the correct path
-    audioOutput->setVolume(50);  // Set volume to 50%
+    musicPlayer->setSource(QUrl::fromLocalFile("C:/Users/Merna/Downloads/01. Ground Theme.mp3"));
+    audioOutput->setVolume(50);
 
     // Start playing the music when the game starts
     musicPlayer->play();
+    // Add coins
+    for (int i = 0; i < 15; ++i)
+    {
+        float xPos = 150 + i * 200; // Spread coins horizontally
+        float yPos = 350;          // Fixed vertical position
+        Coins *coin = new Coins();
+        coin->setPos(xPos, yPos);
+        coins.append(coin);
+        scene->addItem(coin);
+    }
+    for (int i = 0; i < 15; ++i)
+    {
+        float xPos = 500 + i * 200; // Spread coins horizontally
+        float yPos = 200;          // Fixed vertical position
+        Coins *coin = new Coins();
+        coin->setPos(xPos, yPos);
+        coins.append(coin);
+        scene->addItem(coin);
+    }
+    // Add Goombas to the scene
+    for (int i = 0; i < 3; ++i)
+    {
+        float xPos = 300 + i * 400;
+        float yPos = 440;           // Place them on the ground
+        Goomba *goomba = new Goomba("C:/Users/Merna/Downloads/goomba-0.png",
+                                    "C:/Users/Merna/Downloads/goomba-dead.png",
+                                    xPos, yPos, 300);
+        scene->addItem(goomba);
+        connect(gameTimer, &QTimer::timeout, [goomba, player = this->player]() {
+            goomba->update(player);
+        });
+    }
+    // Add Goombas to the scene
+    for (int i = 0; i < 4; ++i)
+    {
+        float xPos = 2100 + i * 400;
+        float yPos = 440;           // Place them on the ground
+        Goomba *goomba = new Goomba("C:/Users/Merna/Downloads/goomba-0.png",
+                                    "C:/Users/Merna/Downloads/goomba-dead.png",
+                                    xPos, yPos, 300); // Maximum 200px movement in either direction
+        scene->addItem(goomba);
+        connect(gameTimer, &QTimer::timeout, [goomba, player = this->player]() {
+            goomba->update(player);
+        });
+    }
+
 }
 
-// Starts the game
 void Level1::startGame()
 {
     score = 0;
     scoreLabel->setText("Score: 0");
     gameTimer->start(16); // ~60 FPS (16 ms per frame)
-
-    // Start playing the music when the game starts
     musicPlayer->play();
 }
 
-// Handles key press events
 void Level1::keyPressEvent(QKeyEvent *event)
 {
     if (player)
@@ -153,7 +215,6 @@ void Level1::keyPressEvent(QKeyEvent *event)
     }
 }
 
-// Handles key release events
 void Level1::keyReleaseEvent(QKeyEvent *event)
 {
     if (player)
@@ -166,10 +227,12 @@ void Level1::updateGame()
 {
     player->updatePosition(); // Apply gravity and jump mechanics
 
+    // Center the view on the player as they move
+    view->centerOn(player);
+
     // Ensure the player doesn’t fall below the ground
     if (player->collidesWithItem(ground))
     {
-        // Correct Mario's position if he collides with the ground
         player->landOn(ground->y() - player->boundingRect().height());
     }
 
@@ -182,20 +245,30 @@ void Level1::updateGame()
             break;
         }
     }
+    // Collision detection with coins
+    for (int i = 0; i < coins.size(); ++i)
+    {
+        if (player->collidesWithItem(coins[i]))
+        {
+            // Increase the score and remove the coin
+            score += 100;
+            scoreLabel->setText("Score: " + QString::number(score));
+
+            // Remove the coin from the scene and list
+            scene->removeItem(coins[i]);
+            delete coins[i];
+            coins.removeAt(i);
+            --i; // Adjust index due to removal
+        }
+    }
 
     // Check if Mario reaches the center of the castle (end of level)
     if (player->x() + player->boundingRect().width() / 2 >= castle->x() + castle->boundingRect().width() / 2)
     {
-        // Show the message box when Mario reaches the castle
         QMessageBox::information(this, "You Won!", "Congratulations Mario, you have completed the level!");
-
-
         musicPlayer->stop();
-
         gameTimer->stop();
     }
 
-    // Update score dynamically
-    score += 1;
-    scoreLabel->setText("Score: " + QString::number(score));
 }
+

@@ -1,42 +1,39 @@
-/*#ifndef ENEMY_H
+#ifndef ENEMY_H
 #define ENEMY_H
 
 #include "obstacle.h"
-#include <QTimer>
+#include <QObject>
+#include <QGraphicsPixmapItem>
 
-class Enemy : public Obstacle
+class Player; // Forward declaration
+
+class Enemy : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 
-private:
-    float m_direction;
-    float m_speed;
-    bool m_isAlive;
-    QTimer *m_timer;
-
+protected:
+    float m_direction;   // Movement direction (-1 for left, 1 for right)
+    float m_speed;       // Speed of movement
+    bool m_isAlive;      // Status of the enemy
 
 public:
-    // Constructor
-    Enemy(const QString &imagePath, float x = 0, float y = 0, float width = 100, float height = 100);
+    Enemy(const QString &imagePath, float x, float y, float width = 40, float height = 40);
 
-    // Setters
+    // Setters and Getters
     void setDirection(float direction);
-    void setSpeed(float speed);
-    void setAlive(bool alive);
-
-    // Getters
     float direction() const;
+
+    void setSpeed(float speed);
     float speed() const;
+
+    void setAlive(bool alive);
     bool isAlive() const;
 
-    // Check if the collision is from the top
-    bool isTopCollision(const Player *player) const;
+    // Collision logic
+    virtual bool isTopCollision(const Player *player) const;
 
-    // Update the enemy's behavior
-    void update(Player *player);
-
-
+    // Update behavior
+    virtual void update(Player *player);
 };
 
 #endif // ENEMY_H
-*/

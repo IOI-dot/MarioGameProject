@@ -1,4 +1,4 @@
-#ifndef COLLECTABLE_H
+/*#ifndef COLLECTABLE_H
 #define COLLECTABLE_H
 #include <QString>
 #include <QPointF>
@@ -32,4 +32,4 @@ private:
     QPointF position;    // Position of collectable in the game world
 };
 
-#endif // COLLECTABLE_H
+#endif // COLLECTABLE_H*/

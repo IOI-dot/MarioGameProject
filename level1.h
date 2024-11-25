@@ -12,7 +12,7 @@
 #include <QMediaPlayer>
 #include <QAudioOutput>
 #include <QKeyEvent>
-
+#include "coins.h"
 class Player;
 class Obstacle;
 
@@ -47,6 +47,7 @@ private:
     QAudioOutput *audioOutput;  // Audio output to manage volume and playback
     int score;
     int level;
+     QList<Coins *> coins;     // List to store coins
 };
 
 #endif // LEVEL1_H

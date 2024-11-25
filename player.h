@@ -1,31 +1,43 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include <QGraphicsPixmapItem>
 #include <QObject>
-#include <QKeyEvent>
-class Obstacle; // Forward declaratio
+#include <QGraphicsPixmapItem>
+
 class Player : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 
+private:
+    int horizontalSpeed;
+    int jumpSpeed;
+    int gravity;
+    int groundLevel;
+    int verticalVelocity;
+    bool isJumping;
+
+    // Image paths for different states
+    QString normalImagePath;
+    QString jumpImagePath;
+    QString standImagePath;
+
 public:
     Player(QObject *parent = nullptr);
 
-    void keyPressEvent(QKeyEvent *event) override;
-    void keyReleaseEvent(QKeyEvent *event) override;
+    // Key events
+    void keyPressEvent(QKeyEvent *event);
+    void keyReleaseEvent(QKeyEvent *event);
+
+    // Movement and actions
     void jump();
+    void bounce();
+    void handleCollision();
     void landOn(float groundY);
     void updatePosition();
-    void stopMovement();
 
-private:
-    float horizontalSpeed;
-    float jumpSpeed;
-    float gravity;
-    float groundLevel;
-    float verticalVelocity;
-    bool isJumping;
+    // Update image
+    void updateImage();
+    void stopMovement();
 };
 
 #endif // PLAYER_H

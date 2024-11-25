@@ -1,10 +1,12 @@
 #ifndef COINS_H
 #define COINS_H
 
-class Coins
+#include <QGraphicsPixmapItem>
+
+class Coins : public QGraphicsPixmapItem
 {
 public:
-    Coins();
+    Coins(); // Constructor
 };
 
 #endif // COINS_H

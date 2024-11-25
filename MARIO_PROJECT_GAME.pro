@@ -12,6 +12,7 @@ SOURCES += \
     collectables.cpp \
     enemy.cpp \
     gameover.cpp \
+    goomba.cpp \
     level1.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -26,6 +27,7 @@ HEADERS += \
     collectables.h \
     enemy.h \
     gameover.h \
+    goomba.h \
     level1.h \
     mainwindow.h \
     obstacle.h \
@@ -43,3 +45,19 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    ../../../Downloads/01. Ground Theme.mp3 \
+    ../../../Downloads/01. Ground Theme.mp3 \
+    ../../../Downloads/block.png \
+    ../../../Downloads/castle.png \
+    ../../../Downloads/coin-1.png \
+    ../../../Downloads/goomba-0.png \
+    ../../../Downloads/goomba-dead.png \
+    ../../../Downloads/mario-big-jump.png \
+    ../../../Downloads/mario-big-stand.png \
+    ../../../Downloads/mario-big-walk-0.png \
+    ../../../Downloads/marioew.png
+
+RESOURCES += \
+    resources.qrc
