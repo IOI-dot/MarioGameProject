@@ -45,7 +45,7 @@ void Level1::initLevel()
     scene->setSceneRect(0, 0, 3000, 600); // Extended level width
 
     // Set the background image for the scene
-    QPixmap backgroundPixmap("C:/Users/Merna/Downloads/sky.png");
+    QPixmap backgroundPixmap(":/Resources/img/sky.png");
     QGraphicsPixmapItem *backgroundItem = new QGraphicsPixmapItem();
     backgroundItem->setPixmap(backgroundPixmap.scaled(3000, 600));
     backgroundItem->setPos(0, 0);
@@ -68,7 +68,7 @@ void Level1::initLevel()
         }
 
         float xPos = i * 50;
-        Obstacle *obstacle = new Obstacle("C:/Users/Merna/Downloads/block.png", xPos, 480);
+        Obstacle *obstacle = new Obstacle(":/Resources/img/block.png", xPos, 480);
         obstacles.append(obstacle);
         scene->addItem(obstacle);
     }
@@ -79,7 +79,7 @@ void Level1::initLevel()
             continue;
         }
         float xPos = i * 50;
-        Obstacle *obstacle = new Obstacle("C:/Users/Merna/Downloads/block.png", xPos, 570);
+        Obstacle *obstacle = new Obstacle(":/Resources/img/block.png", xPos, 570);
         obstacles.append(obstacle);
         scene->addItem(obstacle);
     }
@@ -90,7 +90,7 @@ void Level1::initLevel()
             continue;
         }
         float xPos = i * 50;
-        Obstacle *obstacle = new Obstacle("C:/Users/Merna/Downloads/block.png", xPos, 525);
+        Obstacle *obstacle = new Obstacle(":/Resources/img/block.png", xPos, 525);
         obstacles.append(obstacle);
         scene->addItem(obstacle);
     }
@@ -98,7 +98,7 @@ void Level1::initLevel()
     for (int i = 0; i < 10; ++i)
     {
         float xPos = 500+i * 50;
-        Obstacle *obstacle = new Obstacle("C:/Users/Merna/Downloads/block.png", xPos, 300);
+        Obstacle *obstacle = new Obstacle(":/Resources/img/block.png", xPos, 300);
         obstacles.append(obstacle);
         scene->addItem(obstacle);
     }
@@ -106,13 +106,13 @@ void Level1::initLevel()
     for (int i = 0; i < 7; ++i)
     {
         float xPos = 1600+i * 50;
-        Obstacle *obstacle = new Obstacle("C:/Users/Merna/Downloads/block.png", xPos, 300);
+        Obstacle *obstacle = new Obstacle(":/Resources/img/block.png", xPos, 300);
         obstacles.append(obstacle);
         scene->addItem(obstacle);
     }
     // Add the castle at the end of the level
     castle = new QGraphicsPixmapItem();
-    QPixmap castleImage("C:/Users/Merna/Downloads/castle.png");
+    QPixmap castleImage(":/Resources/img/castle.png");
     castleImage = castleImage.scaled(150, 150);
     castle->setPixmap(castleImage);
     castle->setPos(2800, 330); // Position the castle at the far right
@@ -146,7 +146,7 @@ void Level1::initLevel()
 
     // Set up the audio output
     musicPlayer->setAudioOutput(audioOutput);
-    musicPlayer->setSource(QUrl::fromLocalFile("C:/Users/Merna/Downloads/01. Ground Theme.mp3"));
+    musicPlayer->setSource(QUrl("qrc:/sounds/01. Ground Theme.mp3"));
     audioOutput->setVolume(50);
 
     // Start playing the music when the game starts
@@ -175,8 +175,8 @@ void Level1::initLevel()
     {
         float xPos = 300 + i * 400;
         float yPos = 440;           // Place them on the ground
-        Goomba *goomba = new Goomba("C:/Users/Merna/Downloads/goomba-0.png",
-                                    "C:/Users/Merna/Downloads/goomba-dead.png",
+        Goomba *goomba = new Goomba(":/Resources/img/goomba-0.png",
+                                    ":/Resources/img/goomba-dead.png",
                                     xPos, yPos, 300);
         scene->addItem(goomba);
         connect(gameTimer, &QTimer::timeout, [goomba, player = this->player]() {
@@ -188,8 +188,8 @@ void Level1::initLevel()
     {
         float xPos = 2100 + i * 400;
         float yPos = 440;           // Place them on the ground
-        Goomba *goomba = new Goomba("C:/Users/Merna/Downloads/goomba-0.png",
-                                    "C:/Users/Merna/Downloads/goomba-dead.png",
+        Goomba *goomba = new Goomba(":/Resources/img/goomba-0.png",
+                                    ":/Resources/img/goomba-dead.png",
                                     xPos, yPos, 300); // Maximum 200px movement in either direction
         scene->addItem(goomba);
         connect(gameTimer, &QTimer::timeout, [goomba, player = this->player]() {

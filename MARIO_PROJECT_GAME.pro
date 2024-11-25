@@ -48,16 +48,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 DISTFILES += \
     ../../../Downloads/01. Ground Theme.mp3 \
-    ../../../Downloads/01. Ground Theme.mp3 \
-    ../../../Downloads/block.png \
-    ../../../Downloads/castle.png \
-    ../../../Downloads/coin-1.png \
-    ../../../Downloads/goomba-0.png \
-    ../../../Downloads/goomba-dead.png \
-    ../../../Downloads/mario-big-jump.png \
-    ../../../Downloads/mario-big-stand.png \
-    ../../../Downloads/mario-big-walk-0.png \
-    ../../../Downloads/marioew.png
+    ../../../Downloads/01. Ground Theme.mp3
 
 RESOURCES += \
     resources.qrc

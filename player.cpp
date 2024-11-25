@@ -10,9 +10,9 @@ Player::Player(QObject *parent)
     : QObject(parent), horizontalSpeed(0), jumpSpeed(20), gravity(1), groundLevel(500), verticalVelocity(0), isJumping(false)
 {
     // Image paths for different states
-    normalImagePath = "C:/Users/Merna/Downloads/mario-big-walk-0.png";
-    jumpImagePath = "C:/Users/Merna/Downloads/mario-big-jump.png";
-    standImagePath = "C:/Users/Merna/Downloads/mario-big-stand.png";
+    normalImagePath = ":/Resources/img/mario-big-walk-0.png";
+    jumpImagePath = ":/Resources/img/mario-big-jump.png";
+    standImagePath = ":/Resources/img/mario-big-stand.png";
 
     // Set the initial image to the standing image
     QPixmap playerImage(normalImagePath);
