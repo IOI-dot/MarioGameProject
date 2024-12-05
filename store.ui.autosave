@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>741</width>
-    <height>592</height>
+    <width>743</width>
+    <height>620</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -66,7 +66,7 @@
      <x>0</x>
      <y>0</y>
      <width>741</width>
-     <height>591</height>
+     <height>631</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -110,14 +110,15 @@
   <widget class="QPushButton" name="pushButtonBuyMushroom">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>150</x>
      <y>250</y>
-     <width>151</width>
+     <width>171</width>
      <height>61</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">background: transparent;
+font: 700 15pt &quot;American Typewriter&quot;;
     border: none;
 color: White;</string>
    </property>
@@ -158,6 +159,7 @@ color: White;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">background: transparent;
+font: 700 15pt &quot;American Typewriter&quot;;
     border: none;
 color: White;</string>
    </property>
@@ -231,14 +233,15 @@ color: White;</string>
   <widget class="QPushButton" name="pushButtonBuyFireFlower">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>150</x>
      <y>460</y>
-     <width>151</width>
+     <width>171</width>
      <height>61</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">background: transparent;
+font: 700 15pt &quot;American Typewriter&quot;;
     border: none;
 color: White;</string>
    </property>
@@ -293,19 +296,20 @@ color: White;</string>
   <widget class="QPushButton" name="pushButtonBuyMushroom_2">
    <property name="geometry">
     <rect>
-     <x>430</x>
+     <x>420</x>
      <y>460</y>
-     <width>151</width>
+     <width>171</width>
      <height>61</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">background: transparent;
+font: 700 15pt &quot;American Typewriter&quot;;
     border: none;
 color: White;</string>
    </property>
    <property name="text">
-    <string>BUY MUSHROOM (500)</string>
+    <string>Buy Item (500)</string>
    </property>
   </widget>
   <zorder>labelBackground</zorder>
