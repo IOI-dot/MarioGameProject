@@ -15,6 +15,8 @@ public:
     explicit Store(QWidget *parent = nullptr);
     ~Store();
 
+
+
 private:
     Ui::Store *ui;
 };

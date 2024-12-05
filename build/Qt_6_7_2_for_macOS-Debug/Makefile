@@ -299,6 +299,7 @@ DIST          = /Users/fadysaad/Downloads/01. \
 		/Users/fadysaad/Qt/6.7.2/macos/mkspecs/features/qt_config.prf \
 		/Users/fadysaad/Qt/6.7.2/macos/mkspecs/macx-clang/qmake.conf \
 		/Users/fadysaad/Qt/6.7.2/macos/mkspecs/features/spec_post.prf \
+		../../.qmake.stash \
 		/Users/fadysaad/Qt/6.7.2/macos/mkspecs/features/exclusive_builds.prf \
 		/Users/fadysaad/Qt/6.7.2/macos/mkspecs/features/mac/sdk.prf \
 		/Users/fadysaad/Qt/6.7.2/macos/mkspecs/features/toolchain.prf \
@@ -360,7 +361,7 @@ TARGET        = MARIO_PROJECT_GAME.app/Contents/MacOS/MARIO_PROJECT_GAME
 EXPORT_QMAKE_MAC_SDK = macosx
 EXPORT_QMAKE_MAC_SDK_VERSION = 15.0
 EXPORT_QMAKE_XCODE_DEVELOPER_PATH = /Applications/Xcode.app/Contents/Developer
-EXPORT__QMAKE_STASH_ = 
+EXPORT__QMAKE_STASH_ = /Users/fadysaad/Documents/GitHub/MarioGameProject/build/Qt_6_7_2_for_macOS-Debug/.qmake.stash
 EXPORT_VALID_ARCHS = x86_64 arm64
 EXPORT_DEFAULT_ARCHS = arm64
 EXPORT_ARCHS = $(filter $(EXPORT_VALID_ARCHS), $(if $(ARCHS), $(ARCHS), $(if $(EXPORT_DEFAULT_ARCHS), $(EXPORT_DEFAULT_ARCHS), $(EXPORT_VALID_ARCHS))))
@@ -576,6 +577,7 @@ Makefile: ../../MARIO_PROJECT_GAME.pro /Users/fadysaad/Qt/6.7.2/macos/mkspecs/ma
 		/Users/fadysaad/Qt/6.7.2/macos/mkspecs/features/qt_config.prf \
 		/Users/fadysaad/Qt/6.7.2/macos/mkspecs/macx-clang/qmake.conf \
 		/Users/fadysaad/Qt/6.7.2/macos/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/Users/fadysaad/Qt/6.7.2/macos/mkspecs/features/exclusive_builds.prf \
 		/Users/fadysaad/Qt/6.7.2/macos/mkspecs/features/mac/sdk.prf \
 		/Users/fadysaad/Qt/6.7.2/macos/mkspecs/features/toolchain.prf \
@@ -813,6 +815,7 @@ Makefile: ../../MARIO_PROJECT_GAME.pro /Users/fadysaad/Qt/6.7.2/macos/mkspecs/ma
 /Users/fadysaad/Qt/6.7.2/macos/mkspecs/features/qt_config.prf:
 /Users/fadysaad/Qt/6.7.2/macos/mkspecs/macx-clang/qmake.conf:
 /Users/fadysaad/Qt/6.7.2/macos/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /Users/fadysaad/Qt/6.7.2/macos/mkspecs/features/exclusive_builds.prf:
 /Users/fadysaad/Qt/6.7.2/macos/mkspecs/features/mac/sdk.prf:
 /Users/fadysaad/Qt/6.7.2/macos/mkspecs/features/toolchain.prf:
@@ -886,6 +889,7 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) -r MARIO_PROJECT_GAME.app
+	-$(DEL_FILE) .qmake.stash
 	-$(DEL_FILE) Makefile
 
 
@@ -907,14 +911,18 @@ compiler_rcc_clean:
 	-$(DEL_FILE) qrc_resources.cpp
 qrc_resources.cpp: ../../resources.qrc \
 		/Users/fadysaad/Qt/6.7.2/macos/libexec/rcc \
+		../../img/mushroom.png \
 		../../img/sky.png \
 		../../img/goomba-0.png \
 		../../img/mario-big-walk-0.png \
+		../../img/StoreBackgroundFinal.png \
 		../../img/mario-big-stand.png \
 		../../img/castle.png \
 		../../img/block.png \
 		../../img/mario-big-jump.png \
+		../../img/extralife.png \
 		../../img/coin-1.png \
+		../../img/StoreButtonFinal.png \
 		../../img/marioew.png \
 		../../img/goomba-dead.png \
 		../../sounds/01.\ Ground\ Theme.mp3
@@ -1226,7 +1234,11 @@ score.o: ../../score.cpp
 store.o: ../../store.cpp ../../store.h \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QDialog \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qdialog.h \
-		ui_store.h
+		ui_store.h \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QGraphicsPixmapItem \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QGraphicsScene \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qgraphicsscene.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o store.o ../../store.cpp
 
 qrc_resources.o: qrc_resources.cpp 

@@ -10,6 +10,12 @@
         <file>img/mario-big-walk-0.png</file>
         <file>img/marioew.png</file>
         <file>img/sky.png</file>
+        <file>img/StoreFInal.png</file>
+        <file>img/MushroomFinal.png</file>
+        <file>img/ExtraLifeFinal.png</file>
+        <file>img/StorebuttonFinal.png</file>
+        <file>img/StoreSign.png</file>
+        <file>img/FireflowerFinal.png</file>
     </qresource>
     <qresource prefix="/">
         <file>sounds/01. Ground Theme.mp3</file>
