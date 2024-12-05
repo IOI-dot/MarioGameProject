@@ -16,6 +16,7 @@
         <file>img/StorebuttonFinal.png</file>
         <file>img/StoreSign.png</file>
         <file>img/FireflowerFinal.png</file>
+        <file>img/ExtraLifeFinal2.png</file>
     </qresource>
     <qresource prefix="/">
         <file>sounds/01. Ground Theme.mp3</file>

@@ -911,18 +911,20 @@ compiler_rcc_clean:
 	-$(DEL_FILE) qrc_resources.cpp
 qrc_resources.cpp: ../../resources.qrc \
 		/Users/fadysaad/Qt/6.7.2/macos/libexec/rcc \
-		../../img/mushroom.png \
+		../../img/StoreFInal.png \
 		../../img/sky.png \
+		../../img/ExtraLifeFinal.png \
 		../../img/goomba-0.png \
+		../../img/FireflowerFinal.png \
+		../../img/MushroomFinal.png \
 		../../img/mario-big-walk-0.png \
-		../../img/StoreBackgroundFinal.png \
 		../../img/mario-big-stand.png \
 		../../img/castle.png \
+		../../img/StoreSign.png \
 		../../img/block.png \
 		../../img/mario-big-jump.png \
-		../../img/extralife.png \
+		../../img/StorebuttonFinal.png \
 		../../img/coin-1.png \
-		../../img/StoreButtonFinal.png \
 		../../img/marioew.png \
 		../../img/goomba-dead.png \
 		../../sounds/01.\ Ground\ Theme.mp3
