@@ -51,7 +51,7 @@ bool Enemy::isTopCollision(const Player *player) const
     QRectF playerBounds = player->boundingRect().translated(player->pos());
 
     return playerBounds.bottom() >= enemyBounds.top() &&
-           playerBounds.bottom() <= enemyBounds.top() + 10 &&
+           playerBounds.bottom() <= enemyBounds.top() + 30 &&
            playerBounds.center().x() >= enemyBounds.left() &&
            playerBounds.center().x() <= enemyBounds.right();
 }

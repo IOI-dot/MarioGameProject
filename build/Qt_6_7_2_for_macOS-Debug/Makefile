@@ -916,6 +916,7 @@ qrc_resources.cpp: ../../resources.qrc \
 		../../img/ExtraLifeFinal.png \
 		../../img/goomba-0.png \
 		../../img/FireflowerFinal.png \
+		../../img/ExtraLifeFinal2.png \
 		../../img/MushroomFinal.png \
 		../../img/mario-big-walk-0.png \
 		../../img/mario-big-stand.png \
@@ -1240,7 +1241,26 @@ store.o: ../../store.cpp ../../store.h \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QGraphicsPixmapItem \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QGraphicsScene \
-		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qgraphicsscene.h
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qgraphicsscene.h \
+		../../level1.h \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QWidget \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qwidget.h \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QGraphicsView \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qgraphicsview.h \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QGraphicsRectItem \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QLabel \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qlabel.h \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtCore.framework/Headers/QList \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtCore.framework/Headers/qlist.h \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtCore.framework/Headers/QTimer \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtCore.framework/Headers/qtimer.h \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtMultimedia.framework/Headers/QMediaPlayer \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtMultimedia.framework/Headers/qmediaplayer.h \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtMultimedia.framework/Headers/QAudioOutput \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtMultimedia.framework/Headers/qaudiooutput.h \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtGui.framework/Headers/QKeyEvent \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtGui.framework/Headers/qevent.h \
+		../../coins.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o store.o ../../store.cpp
 
 qrc_resources.o: qrc_resources.cpp 

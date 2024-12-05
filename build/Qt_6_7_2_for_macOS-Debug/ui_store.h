@@ -39,7 +39,7 @@ public:
     {
         if (Store->objectName().isEmpty())
             Store->setObjectName("Store");
-        Store->resize(741, 592);
+        Store->resize(743, 620);
         Store->setStyleSheet(QString::fromUtf8(""));
         labelMushroomImage = new QLabel(Store);
         labelMushroomImage->setObjectName("labelMushroomImage");
@@ -49,13 +49,13 @@ public:
         labelMushroomImage->setScaledContents(true);
         labelLifeImage = new QLabel(Store);
         labelLifeImage->setObjectName("labelLifeImage");
-        labelLifeImage->setGeometry(QRect(390, 20, 231, 311));
+        labelLifeImage->setGeometry(QRect(380, 80, 231, 181));
         labelLifeImage->setStyleSheet(QString::fromUtf8(""));
-        labelLifeImage->setPixmap(QPixmap(QString::fromUtf8(":/Resources/img/ExtraLifeFinal.png")));
+        labelLifeImage->setPixmap(QPixmap(QString::fromUtf8(":/Resources/img/ExtraLifeFinal2.png")));
         labelLifeImage->setScaledContents(true);
         labelBackground = new QLabel(Store);
         labelBackground->setObjectName("labelBackground");
-        labelBackground->setGeometry(QRect(0, 0, 741, 591));
+        labelBackground->setGeometry(QRect(0, 0, 741, 631));
         labelBackground->setStyleSheet(QString::fromUtf8("background-image: url(:/Resources/img/StoreBackgroundFinal.png);"));
         labelBackground->setPixmap(QPixmap(QString::fromUtf8(":/Resources/img/StoreFInal.png")));
         labelBackground->setScaledContents(true);
@@ -68,8 +68,9 @@ public:
         labelButtonImage->setScaledContents(true);
         pushButtonBuyMushroom = new QPushButton(Store);
         pushButtonBuyMushroom->setObjectName("pushButtonBuyMushroom");
-        pushButtonBuyMushroom->setGeometry(QRect(160, 250, 151, 61));
+        pushButtonBuyMushroom->setGeometry(QRect(150, 250, 171, 61));
         pushButtonBuyMushroom->setStyleSheet(QString::fromUtf8("background: transparent;\n"
+"font: 700 15pt \"American Typewriter\";\n"
 "    border: none;\n"
 "color: White;"));
         labelButtonImage_2 = new QLabel(Store);
@@ -82,6 +83,7 @@ public:
         pushButtonBuyLife->setObjectName("pushButtonBuyLife");
         pushButtonBuyLife->setGeometry(QRect(420, 250, 171, 61));
         pushButtonBuyLife->setStyleSheet(QString::fromUtf8("background: transparent;\n"
+"font: 700 15pt \"American Typewriter\";\n"
 "    border: none;\n"
 "color: White;"));
         labelStoreSign = new QLabel(Store);
@@ -103,8 +105,9 @@ public:
         labelFireflowerImage->setScaledContents(true);
         pushButtonBuyFireFlower = new QPushButton(Store);
         pushButtonBuyFireFlower->setObjectName("pushButtonBuyFireFlower");
-        pushButtonBuyFireFlower->setGeometry(QRect(160, 460, 151, 61));
+        pushButtonBuyFireFlower->setGeometry(QRect(150, 460, 171, 61));
         pushButtonBuyFireFlower->setStyleSheet(QString::fromUtf8("background: transparent;\n"
+"font: 700 15pt \"American Typewriter\";\n"
 "    border: none;\n"
 "color: White;"));
         labelButtonImage_4 = new QLabel(Store);
@@ -121,8 +124,9 @@ public:
         labelMushroomImage_3->setScaledContents(true);
         pushButtonBuyMushroom_2 = new QPushButton(Store);
         pushButtonBuyMushroom_2->setObjectName("pushButtonBuyMushroom_2");
-        pushButtonBuyMushroom_2->setGeometry(QRect(430, 460, 151, 61));
+        pushButtonBuyMushroom_2->setGeometry(QRect(420, 460, 171, 61));
         pushButtonBuyMushroom_2->setStyleSheet(QString::fromUtf8("background: transparent;\n"
+"font: 700 15pt \"American Typewriter\";\n"
 "    border: none;\n"
 "color: White;"));
         labelBackground->raise();
@@ -152,16 +156,16 @@ public:
         labelLifeImage->setText(QString());
         labelBackground->setText(QString());
         labelButtonImage->setText(QString());
-        pushButtonBuyMushroom->setText(QCoreApplication::translate("Store", "BUY MUSHROOM (500)", nullptr));
+        pushButtonBuyMushroom->setText(QCoreApplication::translate("Store", "Buy Mushroom (500)", nullptr));
         labelButtonImage_2->setText(QString());
-        pushButtonBuyLife->setText(QCoreApplication::translate("Store", "BUY ExtraLife(1000)", nullptr));
+        pushButtonBuyLife->setText(QCoreApplication::translate("Store", "Buy Extra Life (1000)", nullptr));
         labelStoreSign->setText(QString());
         labelButtonImage_3->setText(QString());
         labelFireflowerImage->setText(QString());
-        pushButtonBuyFireFlower->setText(QCoreApplication::translate("Store", "BUY Fireflower (500)", nullptr));
+        pushButtonBuyFireFlower->setText(QCoreApplication::translate("Store", "Buy Fireflower (500)", nullptr));
         labelButtonImage_4->setText(QString());
         labelMushroomImage_3->setText(QString());
-        pushButtonBuyMushroom_2->setText(QCoreApplication::translate("Store", "BUY MUSHROOM (500)", nullptr));
+        pushButtonBuyMushroom_2->setText(QCoreApplication::translate("Store", "Buy Item (500)", nullptr));
     } // retranslateUi
 
 };

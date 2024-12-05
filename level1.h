@@ -25,6 +25,8 @@ public:
     ~Level1();
 
     void startGame();
+    int getScore();
+    void decreaseScore(int amount);
 
 protected:
     void keyPressEvent(QKeyEvent *event) override;

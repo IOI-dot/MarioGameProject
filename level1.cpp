@@ -35,6 +35,16 @@ Level1::~Level1()
         delete obstacle;
 }
 
+int Level1::getScore()
+{
+    return score;
+}
+
+void Level1::decreaseScore(int amount)
+{
+    score -= amount;
+}
+
 void Level1::initLevel()
 {
     this->setWindowTitle("Level 1");
