@@ -20,6 +20,7 @@ SOURCES += \
     player.cpp \
     powerups.cpp \
     score.cpp \
+    startgame.cpp \
     store.cpp
 
 HEADERS += \
@@ -34,11 +35,13 @@ HEADERS += \
     player.h \
     powerups.h \
     score.h \
+    startgame.h \
     store.h
 
 FORMS += \
     gameover.ui \
     mainwindow.ui \
+    startgame.ui \
     store.ui
 
 # Default rules for deployment.
