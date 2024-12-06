@@ -7,6 +7,7 @@
 *****************************************************************************/
 
 #include "../../../store.h"
+#include <QtGui/qtextcursor.h>
 #include <QtCore/qmetatype.h>
 
 #include <QtCore/qtmochelpers.h>
@@ -35,7 +36,12 @@ namespace {
 #ifdef QT_MOC_HAS_STRINGDATA
 struct qt_meta_stringdata_CLASSStoreENDCLASS_t {};
 constexpr auto qt_meta_stringdata_CLASSStoreENDCLASS = QtMocHelpers::stringData(
-    "Store"
+    "Store",
+    "on_pushButtonBuyMushroom_clicked",
+    "",
+    "on_pushButtonBuyFireFlower_clicked",
+    "on_pushButtonBuyLife_clicked",
+    "on_pushButtonBuyStar_clicked"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -48,12 +54,24 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSStoreENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       0,    0, // methods
+       4,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
        0,       // signalCount
+
+ // slots: name, argc, parameters, tag, flags, initial metatype offsets
+       1,    0,   38,    2, 0x08,    1 /* Private */,
+       3,    0,   39,    2, 0x08,    2 /* Private */,
+       4,    0,   40,    2, 0x08,    3 /* Private */,
+       5,    0,   41,    2, 0x08,    4 /* Private */,
+
+ // slots: parameters
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -66,16 +84,32 @@ Q_CONSTINIT const QMetaObject Store::staticMetaObject = { {
     nullptr,
     qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSStoreENDCLASS_t,
         // Q_OBJECT / Q_GADGET
-        QtPrivate::TypeAndForceComplete<Store, std::true_type>
+        QtPrivate::TypeAndForceComplete<Store, std::true_type>,
+        // method 'on_pushButtonBuyMushroom_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_pushButtonBuyFireFlower_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_pushButtonBuyLife_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_pushButtonBuyStar_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
 } };
 
 void Store::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
-    (void)_o;
-    (void)_id;
-    (void)_c;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        auto *_t = static_cast<Store *>(_o);
+        (void)_t;
+        switch (_id) {
+        case 0: _t->on_pushButtonBuyMushroom_clicked(); break;
+        case 1: _t->on_pushButtonBuyFireFlower_clicked(); break;
+        case 2: _t->on_pushButtonBuyLife_clicked(); break;
+        case 3: _t->on_pushButtonBuyStar_clicked(); break;
+        default: ;
+        }
+    }
     (void)_a;
 }
 
@@ -95,6 +129,17 @@ void *Store::qt_metacast(const char *_clname)
 int Store::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QDialog::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 4)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 4;
+    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 4)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 4;
+    }
     return _id;
 }
 QT_WARNING_POP
