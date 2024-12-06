@@ -914,20 +914,27 @@ qrc_resources.cpp: ../../resources.qrc \
 		../../img/StoreFInal.png \
 		../../img/sky.png \
 		../../img/ExtraLifeFinal.png \
+		../../img/goomba-1.png \
 		../../img/goomba-0.png \
+		../../img/NextButton.png \
+		../../img/Star.png \
 		../../img/FireflowerFinal.png \
 		../../img/ExtraLifeFinal2.png \
 		../../img/MushroomFinal.png \
 		../../img/mario-big-walk-0.png \
 		../../img/mario-big-stand.png \
 		../../img/castle.png \
+		../../img/mario-small-stand.png \
 		../../img/StoreSign.png \
 		../../img/block.png \
 		../../img/mario-big-jump.png \
 		../../img/StorebuttonFinal.png \
+		../../img/mario-small-walk-2.png \
 		../../img/coin-1.png \
-		../../img/marioew.png \
+		../../img/mario-small-jump.png \
 		../../img/goomba-dead.png \
+		../../img/mario-small-walk-1.png \
+		../../img/mario-small-walk-0.png \
 		../../sounds/01.\ Ground\ Theme.mp3
 	/Users/fadysaad/Qt/6.7.2/macos/libexec/rcc -name resources --no-zstd ../../resources.qrc -o qrc_resources.cpp
 
@@ -986,6 +993,12 @@ moc_level1.cpp: ../../level1.h \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtGui.framework/Headers/QKeyEvent \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtGui.framework/Headers/qevent.h \
 		../../coins.h \
+		../../store.h \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QDialog \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		../../level1.h \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QMessageBox \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		/Users/fadysaad/Qt/6.7.2/macos/libexec/moc
 	/Users/fadysaad/Qt/6.7.2/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=16 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/fadysaad/Qt/6.7.2/macos/mkspecs/macx-clang -I/Users/fadysaad/Documents/GitHub/MarioGameProject -I/Users/fadysaad/Qt/6.7.2/macos/lib/QtMultimedia.framework/Headers -I/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers -I/Users/fadysaad/Qt/6.7.2/macos/lib/QtGui.framework/Headers -I/Users/fadysaad/Qt/6.7.2/macos/lib/QtNetwork.framework/Headers -I/Users/fadysaad/Qt/6.7.2/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/fadysaad/Qt/6.7.2/macos/lib ../../level1.h -o moc_level1.cpp
 
@@ -1015,6 +1028,12 @@ moc_mainwindow.cpp: ../../mainwindow.h \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtGui.framework/Headers/QKeyEvent \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtGui.framework/Headers/qevent.h \
 		../../coins.h \
+		../../store.h \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QDialog \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		../../level1.h \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QMessageBox \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		/Users/fadysaad/Qt/6.7.2/macos/libexec/moc
 	/Users/fadysaad/Qt/6.7.2/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=16 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/fadysaad/Qt/6.7.2/macos/mkspecs/macx-clang -I/Users/fadysaad/Documents/GitHub/MarioGameProject -I/Users/fadysaad/Qt/6.7.2/macos/lib/QtMultimedia.framework/Headers -I/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers -I/Users/fadysaad/Qt/6.7.2/macos/lib/QtGui.framework/Headers -I/Users/fadysaad/Qt/6.7.2/macos/lib/QtNetwork.framework/Headers -I/Users/fadysaad/Qt/6.7.2/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/fadysaad/Qt/6.7.2/macos/lib ../../mainwindow.h -o moc_mainwindow.cpp
 
@@ -1023,12 +1042,40 @@ moc_player.cpp: ../../player.h \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtCore.framework/Headers/qobject.h \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QGraphicsPixmapItem \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtGui.framework/Headers/QKeyEvent \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtGui.framework/Headers/qevent.h \
 		/Users/fadysaad/Qt/6.7.2/macos/libexec/moc
 	/Users/fadysaad/Qt/6.7.2/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=16 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/fadysaad/Qt/6.7.2/macos/mkspecs/macx-clang -I/Users/fadysaad/Documents/GitHub/MarioGameProject -I/Users/fadysaad/Qt/6.7.2/macos/lib/QtMultimedia.framework/Headers -I/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers -I/Users/fadysaad/Qt/6.7.2/macos/lib/QtGui.framework/Headers -I/Users/fadysaad/Qt/6.7.2/macos/lib/QtNetwork.framework/Headers -I/Users/fadysaad/Qt/6.7.2/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/fadysaad/Qt/6.7.2/macos/lib ../../player.h -o moc_player.cpp
 
 moc_store.cpp: ../../store.h \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QDialog \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		../../level1.h \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QWidget \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qwidget.h \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QGraphicsView \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qgraphicsview.h \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QGraphicsScene \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qgraphicsscene.h \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QGraphicsRectItem \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QGraphicsPixmapItem \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QLabel \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qlabel.h \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtCore.framework/Headers/QList \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtCore.framework/Headers/qlist.h \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtCore.framework/Headers/QTimer \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtCore.framework/Headers/qtimer.h \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtMultimedia.framework/Headers/QMediaPlayer \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtMultimedia.framework/Headers/qmediaplayer.h \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtMultimedia.framework/Headers/QAudioOutput \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtMultimedia.framework/Headers/qaudiooutput.h \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtGui.framework/Headers/QKeyEvent \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtGui.framework/Headers/qevent.h \
+		../../coins.h \
+		../../store.h \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QMessageBox \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		/Users/fadysaad/Qt/6.7.2/macos/libexec/moc
 	/Users/fadysaad/Qt/6.7.2/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=16 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/fadysaad/Qt/6.7.2/macos/mkspecs/macx-clang -I/Users/fadysaad/Documents/GitHub/MarioGameProject -I/Users/fadysaad/Qt/6.7.2/macos/lib/QtMultimedia.framework/Headers -I/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers -I/Users/fadysaad/Qt/6.7.2/macos/lib/QtGui.framework/Headers -I/Users/fadysaad/Qt/6.7.2/macos/lib/QtNetwork.framework/Headers -I/Users/fadysaad/Qt/6.7.2/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/fadysaad/Qt/6.7.2/macos/lib ../../store.h -o moc_store.cpp
 
@@ -1081,7 +1128,9 @@ enemy.o: ../../enemy.cpp ../../enemy.h \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtGui.framework/Headers/qpixmap.h \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtCore.framework/Headers/QObject \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtCore.framework/Headers/qobject.h \
-		../../player.h
+		../../player.h \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtGui.framework/Headers/QKeyEvent \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtGui.framework/Headers/qevent.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o enemy.o ../../enemy.cpp
 
 gameover.o: ../../gameover.cpp ../../gameover.h \
@@ -1099,7 +1148,17 @@ goomba.o: ../../goomba.cpp ../../goomba.h \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtGui.framework/Headers/qpixmap.h \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtCore.framework/Headers/QObject \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtCore.framework/Headers/qobject.h \
-		../../player.h
+		../../player.h \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtGui.framework/Headers/QKeyEvent \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtGui.framework/Headers/qevent.h \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtCore.framework/Headers/QTimer \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtCore.framework/Headers/qtimer.h \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QGraphicsOpacityEffect \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qgraphicseffect.h \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QGraphicsScene \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qgraphicsscene.h \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtCore.framework/Headers/QDebug \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtCore.framework/Headers/qdebug.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o goomba.o ../../goomba.cpp
 
 level1.o: ../../level1.cpp ../../Level1.h \
@@ -1125,6 +1184,12 @@ level1.o: ../../level1.cpp ../../Level1.h \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtGui.framework/Headers/QKeyEvent \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtGui.framework/Headers/qevent.h \
 		../../coins.h \
+		../../store.h \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QDialog \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		../../level1.h \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QMessageBox \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		../../Player.h \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtCore.framework/Headers/QObject \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtCore.framework/Headers/qobject.h \
@@ -1135,8 +1200,6 @@ level1.o: ../../level1.cpp ../../Level1.h \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qboxlayout.h \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QHBoxLayout \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QGraphicsTextItem \
-		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QMessageBox \
-		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtGui.framework/Headers/QBrush \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtGui.framework/Headers/qbrush.h \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtCore.framework/Headers/QUrl \
@@ -1173,7 +1236,13 @@ main.o: ../../main.cpp /Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/He
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtMultimedia.framework/Headers/qaudiooutput.h \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtGui.framework/Headers/QKeyEvent \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtGui.framework/Headers/qevent.h \
-		../../coins.h
+		../../coins.h \
+		../../store.h \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QDialog \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		../../level1.h \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QMessageBox \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qmessagebox.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../../main.cpp
 
 mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
@@ -1201,7 +1270,13 @@ mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtMultimedia.framework/Headers/qaudiooutput.h \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtGui.framework/Headers/QKeyEvent \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtGui.framework/Headers/qevent.h \
-		../../coins.h
+		../../coins.h \
+		../../store.h \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QDialog \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		../../level1.h \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QMessageBox \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qmessagebox.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../../mainwindow.cpp
 
 obstacle.o: ../../obstacle.cpp ../../obstacle.h \
@@ -1225,7 +1300,9 @@ player.o: ../../player.cpp ../../Player.h \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QGraphicsItem \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtCore.framework/Headers/QDebug \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtCore.framework/Headers/qdebug.h \
-		../../obstacle.h
+		../../obstacle.h \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtCore.framework/Headers/QTimer \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtCore.framework/Headers/qtimer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o player.o ../../player.cpp
 
 powerups.o: ../../powerups.cpp 
@@ -1237,17 +1314,16 @@ score.o: ../../score.cpp
 store.o: ../../store.cpp ../../store.h \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QDialog \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qdialog.h \
-		ui_store.h \
-		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QGraphicsPixmapItem \
-		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
-		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QGraphicsScene \
-		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qgraphicsscene.h \
 		../../level1.h \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QWidget \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qwidget.h \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QGraphicsView \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qgraphicsview.h \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QGraphicsScene \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qgraphicsscene.h \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QGraphicsRectItem \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QGraphicsPixmapItem \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QLabel \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qlabel.h \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtCore.framework/Headers/QList \
@@ -1260,7 +1336,10 @@ store.o: ../../store.cpp ../../store.h \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtMultimedia.framework/Headers/qaudiooutput.h \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtGui.framework/Headers/QKeyEvent \
 		/Users/fadysaad/Qt/6.7.2/macos/lib/QtGui.framework/Headers/qevent.h \
-		../../coins.h
+		../../coins.h \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/QMessageBox \
+		/Users/fadysaad/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		ui_store.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o store.o ../../store.cpp
 
 qrc_resources.o: qrc_resources.cpp 

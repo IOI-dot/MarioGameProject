@@ -271,13 +271,13 @@ color: White;</string>
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QLabel" name="labelMushroomImage_3">
+  <widget class="QLabel" name="labelStarImage">
    <property name="geometry">
     <rect>
-     <x>400</x>
-     <y>320</y>
-     <width>201</width>
-     <height>131</height>
+     <x>410</x>
+     <y>310</y>
+     <width>181</width>
+     <height>161</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -287,13 +287,13 @@ color: White;</string>
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="resources.qrc">:/Resources/img/MushroomFinal.png</pixmap>
+    <pixmap resource="resources.qrc">:/Resources/img/Star.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButtonBuyMushroom_2">
+  <widget class="QPushButton" name="pushButtonBuyStar">
    <property name="geometry">
     <rect>
      <x>420</x>
@@ -309,7 +309,87 @@ font: 700 15pt &quot;American Typewriter&quot;;
 color: White;</string>
    </property>
    <property name="text">
-    <string>Buy Item (500)</string>
+    <string>Buy Star (500)</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelScoreSign">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>0</y>
+     <width>191</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="resources.qrc">:/Resources/img/StorebuttonFinal.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelScoreText">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>30</y>
+     <width>101</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 700 15pt &quot;American Typewriter&quot;;
+color: white;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelNextSign">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>500</y>
+     <width>241</width>
+     <height>121</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="resources.qrc">:/Resources/img/NextButton.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonNext">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>540</y>
+     <width>151</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: transparent;
+font: 700 15pt &quot;American Typewriter&quot;;
+    border: none;
+color: White;</string>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
   <zorder>labelBackground</zorder>
@@ -324,8 +404,12 @@ color: White;</string>
   <zorder>labelFireflowerImage</zorder>
   <zorder>pushButtonBuyFireFlower</zorder>
   <zorder>labelButtonImage_4</zorder>
-  <zorder>labelMushroomImage_3</zorder>
-  <zorder>pushButtonBuyMushroom_2</zorder>
+  <zorder>labelStarImage</zorder>
+  <zorder>pushButtonBuyStar</zorder>
+  <zorder>labelScoreSign</zorder>
+  <zorder>labelScoreText</zorder>
+  <zorder>labelNextSign</zorder>
+  <zorder>pushButtonNext</zorder>
  </widget>
  <resources>
   <include location="resources.qrc"/>

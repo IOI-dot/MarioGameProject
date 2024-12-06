@@ -46,6 +46,20 @@ void Level1::decreaseScore(int amount)
     score -= amount;
 }
 
+/*void Level1::ShowStore(bool show)
+{
+    if (show)
+    {
+        store->show();
+        this->hide(); // Hide the game UI while the store is visible
+    }
+    else
+    {
+        store->hide();
+        this->show(); // Show the game UI when the store is hidden
+    }
+}
+*/
 void Level1::initLevel()
 {
     this->setWindowTitle("Level 1");
@@ -216,6 +230,8 @@ void Level1::initLevel()
         });
     }
 
+    //store = new Store(this);
+    //store->hide();
 
 }
 

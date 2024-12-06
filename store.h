@@ -3,6 +3,8 @@
 
 #include <QDialog>
 #include <level1.h>
+#include <QMessageBox>
+#include "level1.h"
 
 namespace Ui {
 class Store;
@@ -20,6 +22,12 @@ public:
 
 private slots:
     void on_pushButtonBuyMushroom_clicked();
+
+    void on_pushButtonBuyFireFlower_clicked();
+
+    void on_pushButtonBuyLife_clicked();
+
+    void on_pushButtonBuyStar_clicked();
 
 private:
     Ui::Store *ui;

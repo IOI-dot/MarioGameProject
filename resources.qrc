@@ -22,6 +22,8 @@
         <file>img/mario-small-walk-1.png</file>
         <file>img/mario-small-walk-2.png</file>
         <file>img/mario-small-stand.png</file>
+        <file>img/NextButton.png</file>
+        <file>img/Star.png</file>
     </qresource>
     <qresource prefix="/">
         <file>sounds/01. Ground Theme.mp3</file>

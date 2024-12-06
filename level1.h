@@ -13,6 +13,8 @@
 #include <QAudioOutput>
 #include <QKeyEvent>
 #include "coins.h"
+//#include "store.h"
+
 class Player;
 class Obstacle;
 
@@ -27,6 +29,7 @@ public:
     void startGame();
     int getScore();
     void decreaseScore(int amount);
+  //  void ShowStore(bool show);
 
 protected:
     void keyPressEvent(QKeyEvent *event) override;
@@ -50,6 +53,8 @@ private:
     int score;
     int level;
      QList<Coins *> coins;     // List to store coins
+
+   //  Store *store; //pointer to a store
 };
 
 #endif // LEVEL1_H
