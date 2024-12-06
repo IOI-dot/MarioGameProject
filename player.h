@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QGraphicsPixmapItem>
+#include <QKeyEvent>
 
 class Player : public QObject, public QGraphicsPixmapItem
 {
@@ -15,6 +16,7 @@ private:
     int groundLevel;
     int verticalVelocity;
     bool isJumping;
+    bool m_imageToggle;  // For toggling between walking images
 
     // Image paths for different states
     QString normalImagePath;
@@ -35,8 +37,11 @@ public:
     void landOn(float groundY);
     void updatePosition();
 
-    // Update image
+    // Update image and handle movement
     void updateImage();
+    void toggleImage();  // Function to toggle walking images
+
+    // Stop movement (when collision happens or when Mario stops moving)
     void stopMovement();
 };
 

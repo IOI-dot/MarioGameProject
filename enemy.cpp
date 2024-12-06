@@ -31,10 +31,6 @@ float Enemy::speed() const
 void Enemy::setAlive(bool alive)
 {
     m_isAlive = alive;
-    if (!alive)
-    {
-        setOpacity(0.5);
-    }
 }
 
 bool Enemy::isAlive() const

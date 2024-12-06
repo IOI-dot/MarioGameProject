@@ -5,17 +5,18 @@
 #include <QGraphicsItem>
 #include <QDebug>
 #include "obstacle.h"
+#include <QTimer>
 
 Player::Player(QObject *parent)
-    : QObject(parent), horizontalSpeed(0), jumpSpeed(20), gravity(1), groundLevel(500), verticalVelocity(0), isJumping(false)
+    : QObject(parent), horizontalSpeed(0), jumpSpeed(20), gravity(1), groundLevel(500), verticalVelocity(0), isJumping(false), m_imageToggle(true)
 {
     // Image paths for different states
-    normalImagePath = ":/Resources/img/mario-big-walk-0.png";
-    jumpImagePath = ":/Resources/img/mario-big-jump.png";
-    standImagePath = ":/Resources/img/mario-big-stand.png";
+    normalImagePath = ":/Resources/img/mario-small-walk-0.png";
+    jumpImagePath = ":/Resources/img/mario-small-jump.png";
+    standImagePath = ":/Resources/img/mario-small-stand.png";
 
     // Set the initial image to the standing image
-    QPixmap playerImage(normalImagePath);
+    QPixmap playerImage(standImagePath);
     playerImage = playerImage.scaled(40, 60); // Adjust size as needed
     this->setPixmap(playerImage);
 
@@ -25,6 +26,11 @@ Player::Player(QObject *parent)
     // Enable focus for handling key events
     this->setFlags(QGraphicsItem::ItemIsFocusable);
     this->setFocus();
+
+    // Set a timer to handle flickering the walking images
+    QTimer *imageToggleTimer = new QTimer(this);
+    connect(imageToggleTimer, &QTimer::timeout, this, &Player::toggleImage);
+    imageToggleTimer->start(150);  // 150 ms = 0.15 seconds for flickering animation
 }
 
 void Player::keyPressEvent(QKeyEvent *event)
@@ -74,9 +80,7 @@ void Player::bounce()
 
 void Player::handleCollision()
 {
-
     setPos(100, 420); // Reset position
-
 }
 
 void Player::landOn(float groundY)
@@ -162,14 +166,14 @@ void Player::updatePosition()
         isJumping = true;
     }
 
-
     // Ensure Mario stays within scene bounds
     if (x() < 0)
     {
         setPos(0, y()); // Prevent moving off the left edge
     }
-    else if(y()>600){
-         setPos(100, 420); // Reset position
+    else if (y() > 600)
+    {
+        setPos(100, 420); // Reset position
     }
     else if (x() + pixmap().width() > scene()->width())
     {
@@ -179,33 +183,52 @@ void Player::updatePosition()
 
 void Player::updateImage()
 {
-    QPixmap currentImage;
-
-    // Update the image based on the current state
-    if (horizontalSpeed == 0 && !isJumping)  // Standing still
+    // If Mario is standing still
+    if (horizontalSpeed == 0 && !isJumping)
     {
-        currentImage = QPixmap(standImagePath);
+        setPixmap(QPixmap(standImagePath).scaled(40, 60));  // Standing still image
     }
-    else if (isJumping)  // Jumping
+    else if (isJumping)  // If Mario is jumping
     {
-        currentImage = QPixmap(jumpImagePath);
+        setPixmap(QPixmap(jumpImagePath).scaled(40, 60));  // Jump image
     }
-    else if (horizontalSpeed < 0)  // Moving left
-    {
-        currentImage = QPixmap(normalImagePath);
-        QTransform transform;
-        transform.scale(-1, 1);  // (mirror effect)
-        currentImage = currentImage.transformed(transform);
-    }
-    else  // Moving right
-    {
-        currentImage = QPixmap(normalImagePath);
-    }
-
-    currentImage = currentImage.scaled(40, 60);
-    this->setPixmap(currentImage);
 }
 
+void Player::toggleImage()
+{
+    // Only toggle images if Mario is moving (left or right)
+    if (horizontalSpeed != 0 && !isJumping)
+    {
+        QString walkingImage;
+        if (horizontalSpeed > 0)  // Moving right
+        {
+            // Toggle between walk images for right movement
+            walkingImage = (m_imageToggle) ? ":/Resources/img/mario-small-walk-0.png" : ":/Resources/img/mario-small-walk-1.png";
+        }
+        else  // Moving left
+        {
+            // Toggle between walk images for left movement (mirrored)
+            walkingImage = (m_imageToggle) ? ":/Resources/img/mario-small-walk-0.png" : ":/Resources/img/mario-small-walk-2.png";
+        }
+
+        // Set the current walking image for Mario
+        QPixmap playerImage(walkingImage);
+        if (horizontalSpeed > 0)  // If moving right, apply no mirror effect
+        {
+            playerImage = playerImage.scaled(40, 60);
+        }
+        else  // If moving left, apply mirror effect
+        {
+            QTransform transform;
+            transform.scale(-1, 1);  // Flip the image horizontally
+            playerImage = playerImage.transformed(transform).scaled(40, 60);
+        }
+
+        this->setPixmap(playerImage);  // Set the updated image for Mario
+
+        m_imageToggle = !m_imageToggle;  // Toggle the flag for the next update
+    }
+}
 
 void Player::stopMovement()
 {
@@ -213,3 +236,4 @@ void Player::stopMovement()
     verticalVelocity = 0;
     isJumping = false;
 }
+

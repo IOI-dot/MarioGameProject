@@ -14,6 +14,7 @@
 #include <QUrl>
 #include "coins.h"
 #include "goomba.h"
+#include "store.h"
 // Constructor
 Level1::Level1(QWidget *parent)
     : QWidget(parent), scene(nullptr), view(nullptr), player(nullptr), ground(nullptr), castle(nullptr), score(0), level(1)
@@ -59,6 +60,7 @@ void Level1::initLevel()
     QGraphicsPixmapItem *backgroundItem = new QGraphicsPixmapItem();
     backgroundItem->setPixmap(backgroundPixmap.scaled(3000, 600));
     backgroundItem->setPos(0, 0);
+    backgroundItem->setZValue(-10); // Ensure background is behind other objects
     scene->addItem(backgroundItem);
 
     // Set up the view
@@ -69,6 +71,7 @@ void Level1::initLevel()
     player = new Player();
     player->setPos(100, 420); // Place player on the ground
     player->setFocus();
+    player->setZValue(4);
     scene->addItem(player);
 
     // Add obstacles to the scene
@@ -126,6 +129,7 @@ void Level1::initLevel()
     castleImage = castleImage.scaled(150, 150);
     castle->setPixmap(castleImage);
     castle->setPos(2800, 330); // Position the castle at the far right
+   castle->setZValue(0); // Ensure the castle is rendered in front of the background
     scene->addItem(castle);
 
     // Set up the score and level labels
@@ -180,32 +184,38 @@ void Level1::initLevel()
         coins.append(coin);
         scene->addItem(coin);
     }
-    // Add Goombas to the scene
+    // Add Goombas to the scene (Group 1)
     for (int i = 0; i < 3; ++i)
     {
         float xPos = 300 + i * 400;
-        float yPos = 440;           // Place them on the ground
+        float yPos = 440;  // Place them on the ground
         Goomba *goomba = new Goomba(":/Resources/img/goomba-0.png",
                                     ":/Resources/img/goomba-dead.png",
                                     xPos, yPos, 300);
         scene->addItem(goomba);
+
+        // Connect gameTimer to update the Goomba
         connect(gameTimer, &QTimer::timeout, [goomba, player = this->player]() {
             goomba->update(player);
         });
     }
-    // Add Goombas to the scene
+
+    // Add Goombas to the scene (Group 2)
     for (int i = 0; i < 4; ++i)
     {
         float xPos = 2100 + i * 400;
-        float yPos = 440;           // Place them on the ground
+        float yPos = 440;  // Place them on the ground
         Goomba *goomba = new Goomba(":/Resources/img/goomba-0.png",
                                     ":/Resources/img/goomba-dead.png",
-                                    xPos, yPos, 300); // Maximum 200px movement in either direction
+                                    xPos, yPos, 300);  // Maximum 300px movement in either direction
         scene->addItem(goomba);
+
+        // Connect gameTimer to update the Goomba
         connect(gameTimer, &QTimer::timeout, [goomba, player = this->player]() {
             goomba->update(player);
         });
     }
+
 
 }
 
@@ -272,13 +282,22 @@ void Level1::updateGame()
         }
     }
 
-    // Check if Mario reaches the center of the castle (end of level)
     if (player->x() + player->boundingRect().width() / 2 >= castle->x() + castle->boundingRect().width() / 2)
     {
-        QMessageBox::information(this, "You Won!", "Congratulations Mario, you have completed the level!");
+        // Stop the game
         musicPlayer->stop();
         gameTimer->stop();
+        player->hide();
+
+        // Show a victory message
+        QMessageBox::information(this, "You Won!", "Congratulations Mario, you have completed the level!");
+
+        // Close Level1 and open the store dialog
+        this->close(); // Close the current Level1 widget
+        Store *store = new Store(this);
+        store->exec(); // Open the store as a modal dialog
     }
 
 }
+
 
