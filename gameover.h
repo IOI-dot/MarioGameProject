@@ -1,22 +1,38 @@
 #ifndef GAMEOVER_H
 #define GAMEOVER_H
 
-#include <QDialog>
+#include <QWidget>
+#include <QLabel>
+#include <QPushButton>
+#include <QVBoxLayout>
+#include <QMessageBox>
+
 
 namespace Ui {
-class Gameover;
+class GameOver;  //  declaration of the UI class
 }
 
-class Gameover : public QDialog
+class GameOver : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit Gameover(QWidget *parent = nullptr);
-    ~Gameover();
+     GameOver(QWidget *parent = nullptr);  // Constructor
+    ~GameOver();
+
+ signals:
+     void backToStartScreen(); // Signal to go back to start screen
+
+private slots:
+    void onRestartButtonClicked();  // Slot for the restart button
+    void onExitButtonClicked();  // Slot for the exit button
 
 private:
-    Ui::Gameover *ui;
+    Ui::GameOver *ui;  // Pointer to the UI object
+    QLabel *gameOverImageLabel;  // Label for the game over image
+    QPushButton *restartButton;  // Button to restart the game
+    QPushButton *exitButton;  // Button to exit the game
+
 };
 
 #endif // GAMEOVER_H
