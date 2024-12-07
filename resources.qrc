@@ -49,6 +49,11 @@
         <file>img/mario-big-walk-2.png</file>
         <file>img/piranha-1.png</file>
         <file>img/turtle-turtleback-0.png</file>
+        <file>img/block.png</file>
+        <file>img/castle.png</file>
+        <file>img/goomba-0.png</file>
+        <file>img/goomba-dead.png</file>
+        <file>img/coin-1.png</file>
     </qresource>
     <qresource prefix="/">
         <file>sounds/02. Underground Theme.mp3</file>
