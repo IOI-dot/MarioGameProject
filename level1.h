@@ -13,7 +13,8 @@
 #include <QAudioOutput>
 #include <QKeyEvent>
 #include "coins.h"
-#include "collectables.h"
+//#include "store.h"
+
 class Player;
 class Obstacle;
 
@@ -28,8 +29,8 @@ public:
     void startGame();
     int getScore();
     void decreaseScore(int amount);
-signals:
-    void levelCompleted();  // Signal emitted when level is completed
+  //  void ShowStore(bool show);
+
 protected:
     void keyPressEvent(QKeyEvent *event) override;
     void keyReleaseEvent(QKeyEvent *event) override;
@@ -52,7 +53,8 @@ private:
     int score;
     int level;
      QList<Coins *> coins;     // List to store coins
-    QList<Collectable*> mushrooms;
+
+   //  Store *store; //pointer to a store
 };
 
 #endif // LEVEL1_H

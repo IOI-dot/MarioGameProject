@@ -13,6 +13,54 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <widget class="QLabel" name="gameoverimage">
+   <property name="geometry">
+    <rect>
+     <x>-10</x>
+     <y>-10</y>
+     <width>411</width>
+     <height>321</height>
+    </rect>
+   </property>
+   <property name="midLineWidth">
+    <number>10</number>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>../../../../Dropbox/My PC (LAPTOP-EQ6B6105)/Downloads/Super_Mario_Bros._2_-_NES_-_Game_Over.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="restartButton">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>190</y>
+     <width>83</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Restart</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="exitButton">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>230</y>
+     <width>83</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

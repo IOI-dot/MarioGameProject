@@ -11,52 +11,37 @@ SOURCES += \
     coins.cpp \
     collectables.cpp \
     enemy.cpp \
-    fireball.cpp \
     gameover.cpp \
     goomba.cpp \
     level1.cpp \
-    level2.cpp \
-    level3.cpp \
-    level4.cpp \
-    level5.cpp \
-    levelmanager.cpp \
     main.cpp \
     mainwindow.cpp \
     obstacle.cpp \
-    piranha.cpp \
     player.cpp \
     powerups.cpp \
     score.cpp \
-    store.cpp \
-    turtle.cpp \
-    turtlefly.cpp
+    startgame.cpp \
+    store.cpp
 
 HEADERS += \
     coins.h \
     collectables.h \
     enemy.h \
-    fireball.h \
     gameover.h \
     goomba.h \
     level1.h \
-    level2.h \
-    level3.h \
-    level4.h \
-    level5.h \
-    levelmanager.h \
     mainwindow.h \
     obstacle.h \
-    piranha.h \
     player.h \
     powerups.h \
     score.h \
-    store.h \
-    turtle.h \
-    turtlefly.h
+    startgame.h \
+    store.h
 
 FORMS += \
     gameover.ui \
     mainwindow.ui \
+    startgame.ui \
     store.ui
 
 # Default rules for deployment.
