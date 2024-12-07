@@ -30,6 +30,8 @@ public:
     int getScore();
     void decreaseScore(int amount);
   //  void ShowStore(bool show);
+signals:
+    void level1Completed();  // Signal emitted when level is completed
 
 protected:
     void keyPressEvent(QKeyEvent *event) override;

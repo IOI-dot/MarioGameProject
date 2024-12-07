@@ -205,7 +205,7 @@ void Level1::initLevel()
         float yPos = 440;  // Place them on the ground
         Goomba *goomba = new Goomba(":/Resources/img/goomba-0.png",
                                     ":/Resources/img/goomba-dead.png",
-                                    xPos, yPos, 300);
+                                    xPos, yPos,300);
         scene->addItem(goomba);
 
         // Connect gameTimer to update the Goomba
@@ -221,7 +221,7 @@ void Level1::initLevel()
         float yPos = 440;  // Place them on the ground
         Goomba *goomba = new Goomba(":/Resources/img/goomba-0.png",
                                     ":/Resources/img/goomba-dead.png",
-                                    xPos, yPos, 300);  // Maximum 300px movement in either direction
+                                    xPos, yPos,300);  // Maximum 300px movement in either direction
         scene->addItem(goomba);
 
         // Connect gameTimer to update the Goomba
@@ -229,9 +229,6 @@ void Level1::initLevel()
             goomba->update(player);
         });
     }
-
-    //store = new Store(this);
-    //store->hide();
 
 }
 
@@ -309,9 +306,7 @@ void Level1::updateGame()
         QMessageBox::information(this, "You Won!", "Congratulations Mario, you have completed the level!");
 
         // Close Level1 and open the store dialog
-        this->close(); // Close the current Level1 widget
-        Store *store = new Store(this);
-        store->exec(); // Open the store as a modal dialog
+        emit level1Completed();
     }
 
 }

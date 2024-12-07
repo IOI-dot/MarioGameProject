@@ -11,37 +11,51 @@ SOURCES += \
     coins.cpp \
     collectables.cpp \
     enemy.cpp \
-    gameover.cpp \
+    fireball.cpp \
     goomba.cpp \
     level1.cpp \
+    level2.cpp \
+    level3.cpp \
+    level4.cpp \
+    level5.cpp \
+    levelmanager.cpp \
     main.cpp \
     mainwindow.cpp \
     obstacle.cpp \
+    piranha.cpp \
     player.cpp \
     powerups.cpp \
     score.cpp \
-    startgame.cpp \
-    store.cpp
+    store.cpp \
+    turtle.cpp \
+    turtlefly.cpp
 
 HEADERS += \
     coins.h \
     collectables.h \
     enemy.h \
-    gameover.h \
+    fireball.h \
     goomba.h \
     level1.h \
+    level2.h \
+    level3.h \
+    level4.h \
+    level5.h \
+    levelmanager.h \
     mainwindow.h \
     obstacle.h \
+    piranha.h \
     player.h \
     powerups.h \
     score.h \
-    startgame.h \
-    store.h
+    store.h \
+    turtle.h \
+    turtlefly.h
 
 FORMS += \
-    gameover.ui \
+    Player.ui \
+    level2.ui \
     mainwindow.ui \
-    startgame.ui \
     store.ui
 
 # Default rules for deployment.
@@ -51,7 +65,14 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 DISTFILES += \
     ../../../Downloads/01. Ground Theme.mp3 \
-    ../../../Downloads/01. Ground Theme.mp3
+    ../../../Downloads/01. Ground Theme.mp3 \
+    Lucidchart super mario.docx \
+    MARIO_PROJECT_GAME.pro.user \
+    MARIO_PROJECT_GAME.pro.user.1a33b8a \
+    MARIO_PROJECT_GAME.pro.user.40841d7 \
+    MARIO_PROJECT_GAME.pro.user.4a76226 \
+    MARIO_PROJECT_GAME.pro.user.9ddf80c
 
 RESOURCES += \
+    resources.qrc \
     resources.qrc

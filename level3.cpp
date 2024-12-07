@@ -166,7 +166,7 @@ void Level3::initLevel()
         float yPos = 515;  // Place them on the ground
         Goomba *goomba = new Goomba(":/Resources/img/goomba-0.png",
                                     ":/Resources/img/goomba-dead.png",
-                                    xPos, yPos, 300,3);  // Maximum 300px movement in either direction
+                                    xPos, yPos, 300);  // Maximum 300px movement in either direction
         scene->addItem(goomba);
 
         // Connect gameTimer to update the Goomba

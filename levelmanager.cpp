@@ -26,7 +26,7 @@ void LevelManager::startLevel1()
     if (!level1)
     {
         level1 = new Level1(this);
-        connect(level1, &Level1::levelCompleted, this, &LevelManager::startLevel2);
+        connect(level1, &Level1::level1Completed, this, &LevelManager::startLevel2);
         stackedWidget->addWidget(level1);
     }
     stackedWidget->setCurrentWidget(level1);

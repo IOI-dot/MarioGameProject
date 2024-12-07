@@ -1,16 +1,4 @@
 <RCC>
-    <qresource prefix="/Img">
-        <file>img/block.png</file>
-        <file>img/castle.png</file>
-        <file>img/coin-1.png</file>
-        <file>img/goomba-0.png</file>
-        <file>img/goomba-dead.png</file>
-        <file>img/mario-big-jump.png</file>
-        <file>img/mario-big-stand.png</file>
-        <file>img/mario-big-walk-0.png</file>
-        <file>img/marioew.png</file>
-    </qresource>
-    <qresource prefix="/sounds">
-        <file>sounds/01. Ground Theme.mp3</file>
-    </qresource>
+    <qresource prefix="/Img"/>
+    <qresource prefix="/sounds"/>
 </RCC>

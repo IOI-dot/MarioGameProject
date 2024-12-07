@@ -18,7 +18,7 @@ private:
 
 public:
     // Constructor to initialize the Goomba with its alive and dead images, starting position, and maximum distance
-    Goomba(const QString &alivePath, const QString &deadPath, float startX, float startY, float maxDistance, int x);
+    Goomba(const QString &alivePath, const QString &deadPath, float startX, float startY, float maxDistance);
 
     // Override the update method from the Enemy class
     void update(Player *player) override;
