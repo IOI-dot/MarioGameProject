@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QGraphicsPixmapItem>
 #include <QKeyEvent>
+#include "level1.h"
 
 class Player : public QObject, public QGraphicsPixmapItem
 {
@@ -18,6 +19,8 @@ private:
     bool isJumping;
     bool m_imageToggle;  // For toggling between walking images
     bool facingLeft;  // Tracks whether Mario is facing left
+    int lives =3;
+    Level1* level1;
 
     // Image paths for different states
     QString normalImagePath;

@@ -14,7 +14,7 @@ LevelManager::LevelManager(QWidget *parent)
     layout->addWidget(stackedWidget);
     this->setLayout(layout);
 
-    startLevel3();  // Start with Level 1
+    startLevel1();  // Start with Level 1
 }
 
 LevelManager::~LevelManager()

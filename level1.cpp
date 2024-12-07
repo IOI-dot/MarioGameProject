@@ -60,6 +60,12 @@ void Level1::decreaseScore(int amount)
     }
 }
 */
+int Level1::GetLives(){
+    return lives;
+}
+void Level1::Setlives(int l){
+    lives = l;
+}
 void Level1::initLevel()
 {
     this->setWindowTitle("Level 1");
@@ -149,13 +155,18 @@ void Level1::initLevel()
     // Set up the score and level labels
     scoreLabel = new QLabel("Score: 0", this);
     levelLabel = new QLabel("Level: 1", this);
+    QString str = QString::number(lives);
+    liveLabel =new QLabel("Lives: "+str, this);
 
     scoreLabel->setStyleSheet("font-size: 16px; font-weight: bold;");
     levelLabel->setStyleSheet("font-size: 16px; font-weight: bold;");
+    liveLabel->setStyleSheet("font-size: 16px; font-weight: bold;");
 
     QHBoxLayout *labelLayout = new QHBoxLayout();
     labelLayout->addWidget(levelLabel);
     labelLayout->addWidget(scoreLabel);
+     labelLayout->addWidget(liveLabel);
+
 
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->addLayout(labelLayout);

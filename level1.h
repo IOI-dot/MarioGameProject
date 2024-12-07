@@ -29,6 +29,8 @@ public:
     void startGame();
     int getScore();
     void decreaseScore(int amount);
+    void Setlives(int);
+    int GetLives(); //Getters and Setters
   //  void ShowStore(bool show);
 signals:
     void level1Completed();  // Signal emitted when level is completed
@@ -48,12 +50,14 @@ private:
     QGraphicsPixmapItem *castle;
     QLabel *scoreLabel;
     QLabel *levelLabel;
+    QLabel *liveLabel;
     QList<Obstacle *> obstacles;
     QTimer *gameTimer;
     QMediaPlayer *musicPlayer;  // Media player for background music
     QAudioOutput *audioOutput;  // Audio output to manage volume and playback
     int score;
     int level;
+    int lives=3;
      QList<Coins *> coins;     // List to store coins
 
    //  Store *store; //pointer to a store
