@@ -16,6 +16,7 @@
 #include <QUrl>
 #include "piranha.h"
 #include <QRandomGenerator>
+#include "store.h"
 
 // Constructor
 Level3::Level3(QWidget *parent)
@@ -321,6 +322,9 @@ void Level3::updateGame()
 
         // Show a victory message
         QMessageBox::information(this, "You Won!", "Congratulations Mario, you have completed Level 3!");
+        this->close();
+        Store* store =new Store(this);
+        store->exec();
         emit level3Completed();
     }
 }

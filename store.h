@@ -2,9 +2,8 @@
 #define STORE_H
 
 #include <QDialog>
-#include <level1.h>
 #include <QMessageBox>
-#include "level1.h"
+#include "level3.h"
 
 namespace Ui {
 class Store;
@@ -15,7 +14,7 @@ class Store : public QDialog
     Q_OBJECT
 
 public:
-    explicit Store(Level1 *level, QWidget *parent = nullptr);
+    explicit Store(Level3 *level, QWidget *parent = nullptr);
     ~Store();
 
 
@@ -29,9 +28,11 @@ private slots:
 
     void on_pushButtonBuyStar_clicked();
 
+    void on_pushButtonNext_clicked();
+
 private:
     Ui::Store *ui;
-    Level1 *Level;
+    Level3 *Level;
 };
 
 #endif // STORE_H

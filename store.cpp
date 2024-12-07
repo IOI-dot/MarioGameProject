@@ -2,9 +2,9 @@
 #include "ui_store.h"
 #include <QGraphicsPixmapItem>
 #include <QGraphicsScene>
-#include "level1.h"
+#include "level3.h"
 
-Store::Store(Level1 *level, QWidget *parent)
+Store::Store(Level3 *level, QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::Store) , Level(level)
 {
@@ -89,5 +89,11 @@ void Store::on_pushButtonBuyStar_clicked()
         // Display a message box indicating insufficient score
         QMessageBox::warning(this, "Insufficient Score", "Transaction failed, you need at least a score of 500 to buy a Star!");
     }
+}
+
+
+void Store::on_pushButtonNext_clicked()
+{
+    this->close();
 }
 
