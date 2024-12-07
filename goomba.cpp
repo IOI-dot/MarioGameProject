@@ -5,7 +5,7 @@
 #include <QGraphicsScene>
 #include <QDebug>
 
-Goomba::Goomba(const QString &alivePath, const QString &deadPath, float startX, float startY, float maxDistance)
+Goomba::Goomba(const QString &alivePath, const QString &deadPath, float startX, float startY, float maxDistance, int x)
     : Enemy(alivePath, startX, startY), m_deadImagePath(deadPath), m_startX(startX), m_maxDistance(maxDistance), m_imageToggle(true)
 {
     setSpeed(1.5);  // Slower movement for Goombas
@@ -14,6 +14,7 @@ Goomba::Goomba(const QString &alivePath, const QString &deadPath, float startX, 
     // Set initial walking image
     setPixmap(QPixmap(alivePath).scaled(40, 40)); // Assuming alive image size is 40x40
     m_walkImagePath1 = alivePath;
+    leveltype=x;
     m_walkImagePath2 = ":/Resources/img/goomba-1.png"; // The second walking image
 
     // Start the image toggle timer to switch images every 0.5 seconds
@@ -54,7 +55,12 @@ void Goomba::update(Player *player)
             setPixmap(QPixmap(m_deadImagePath).scaled(40, 20)); // Squished Goomba image
 
             // Adjust position to keep Goomba on the ground
-            setPos(x(), 461);
+            if(leveltype==1){
+                setPos(x(), y()+20);
+            }
+            else{
+                 setPos(x(), y()+20);
+            }
             // Start flickering effect
             startFlickering();
             player->bounce(); // Mario bounces after stomping the Goomba

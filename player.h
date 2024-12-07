@@ -17,14 +17,21 @@ private:
     int verticalVelocity;
     bool isJumping;
     bool m_imageToggle;  // For toggling between walking images
+    bool facingLeft;  // Tracks whether Mario is facing left
 
     // Image paths for different states
     QString normalImagePath;
     QString jumpImagePath;
     QString standImagePath;
+    QString bigJumpImagePath;
+    QString bigStandImagePath;
+    QString bigWalkImagePaths[3];
+    bool isBig;
+
 
 public:
     Player(QObject *parent = nullptr);
+    void consumeMushroom();
 
     // Key events
     void keyPressEvent(QKeyEvent *event);

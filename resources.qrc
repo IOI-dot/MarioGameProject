@@ -22,8 +22,46 @@
         <file>img/mario-small-walk-1.png</file>
         <file>img/mario-small-walk-2.png</file>
         <file>img/mario-small-stand.png</file>
+        <file>img/coin-0.png</file>
+        <file>img/coin-2.png</file>
+        <file>img/mario-big-walk-1.png</file>
+        <file>img/mario-big-walk-2.png</file>
+        <file>img/brick.bmp</file>
+        <file>img/Background2.png</file>
+        <file>img/castle2.png</file>
+        <file>img/turtle-turtleback-0.png</file>
+        <file>img/turtle-walk-0.png</file>
+        <file>img/turtle-walk-1.png</file>
+        <file>img/brick2.bmp</file>
+        <file>img/piranha-0.png</file>
+        <file>img/piranha-1.png</file>
+        <file>img/pipe-med.png</file>
+        <file>img/cloud-med.png</file>
+        <file>img/cloud-big.png</file>
+        <file>img/cloud-small.png</file>
+        <file>img/turtle-fly-0.png</file>
+        <file>img/turtle-fly-1.png</file>
+        <file>img/Princess peach.JPG</file>
+        <file>img/Background3.png</file>
+        <file>img/fireball-0.bmp</file>
+        <file>img/fireball-1.bmp</file>
+        <file>img/fireball-2.bmp</file>
+        <file>img/fireball-3.bmp</file>
+        <file>img/fireball-0-Photoroom.png</file>
+        <file>img/fireball-1-Photoroom.png</file>
+        <file>img/Background5.png</file>
+        <file>img/Background4.jpg</file>
+        <file>img/BACK.jpg</file>
+        <file>img/THEONE.jpg</file>
+        <file>img/a.jpg</file>
     </qresource>
     <qresource prefix="/">
         <file>sounds/01. Ground Theme.mp3</file>
+        <file>sounds/02. Underground Theme.mp3</file>
+        <file>sounds/05. Invincibility Theme.mp3</file>
+        <file>sounds/03. Underwater Theme.mp3</file>
+        <file>sounds/04. Castle Theme.mp3</file>
+        <file>sounds/07. Castle Complete.mp3</file>
+        <file>sounds/12. Ground Theme (Hurry!).mp3</file>
     </qresource>
 </RCC>

@@ -1,13 +1,14 @@
-#include "mainwindow.h"
+#include "MainWindow.h"
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
+    : QMainWindow(parent), levelManager(new LevelManager(this))
 {
-    gameLevel = new Level1(this);  // Create an instance of Level1
-    setCentralWidget(gameLevel);   // Set the game window (Level1) as the central widget
+    setCentralWidget(levelManager);
+    resize(800, 600);
+    setWindowTitle("Mario Game");
 }
 
 MainWindow::~MainWindow()
 {
-    delete gameLevel;  // Clean up the game window
+    // `levelManager` will be automatically deleted as its parent is the MainWindow
 }

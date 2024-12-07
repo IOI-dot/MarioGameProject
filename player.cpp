@@ -6,9 +6,9 @@
 #include <QDebug>
 #include "obstacle.h"
 #include <QTimer>
-
+#include "collectables.h"
 Player::Player(QObject *parent)
-    : QObject(parent), horizontalSpeed(0), jumpSpeed(20), gravity(1), groundLevel(500), verticalVelocity(0), isJumping(false), m_imageToggle(true)
+    : QObject(parent), horizontalSpeed(0), jumpSpeed(20), gravity(1), groundLevel(500), verticalVelocity(0), isJumping(false), m_imageToggle(true), facingLeft(false)
 {
     // Image paths for different states
     normalImagePath = ":/Resources/img/mario-small-walk-0.png";
@@ -17,7 +17,7 @@ Player::Player(QObject *parent)
 
     // Set the initial image to the standing image
     QPixmap playerImage(standImagePath);
-    playerImage = playerImage.scaled(40, 60); // Adjust size as needed
+    playerImage = playerImage.scaled(40, 50); // Reduced size
     this->setPixmap(playerImage);
 
     // Start at an initial position
@@ -30,28 +30,44 @@ Player::Player(QObject *parent)
     // Set a timer to handle flickering the walking images
     QTimer *imageToggleTimer = new QTimer(this);
     connect(imageToggleTimer, &QTimer::timeout, this, &Player::toggleImage);
-    imageToggleTimer->start(150);  // 150 ms = 0.15 seconds for flickering animation
-}
+    imageToggleTimer->start(150);  // 150 ms for flickering animation
+    isBig = false;
 
+    bigJumpImagePath = ":/Resources/img/mario-big-jump.png";
+    bigStandImagePath = ":/Resources/img/mario-big-stand.png";
+    bigWalkImagePaths[0] = ":/Resources/img/mario-big-walk-0.png";
+    bigWalkImagePaths[1] = ":/Resources/img/mario-big-walk-1.png";
+    bigWalkImagePaths[2] = ":/Resources/img/mario-small-walk-2.png";
+}
+void Player::consumeMushroom()
+{
+    isBig = true;
+    setScale(1.2); // Adjust size
+    setPos(x(), y() - 20); // Compensate for size change
+    updateImage(); // Update to big Mario's image
+}
 void Player::keyPressEvent(QKeyEvent *event)
 {
     switch (event->key())
     {
-    case Qt::Key_A:  // Left movement
+    case Qt::Key_A:  // Move left
         horizontalSpeed = -5;
-        updateImage();  // Update image when moving left
+        facingLeft = true;  // Mario is facing left
+        updateImage();
         break;
-    case Qt::Key_D:  // Right movement
+    case Qt::Key_D:  // Move right
         horizontalSpeed = 5;
-        updateImage();  // Update image when moving right
+        facingLeft = false;  // Mario is facing right
+        updateImage();
         break;
-    case Qt::Key_W:  // Jumping
+    case Qt::Key_W:  // Jump
         jump();
         break;
     default:
         break;
     }
 }
+
 
 void Player::keyReleaseEvent(QKeyEvent *event)
 {
@@ -105,8 +121,10 @@ void Player::updatePosition()
 
     // Check collisions with other items
     QList<QGraphicsItem *> collidingItems = scene()->collidingItems(this);
+
     for (QGraphicsItem *item : collidingItems)
     {
+
         Obstacle *obstacle = dynamic_cast<Obstacle *>(item);
         if (obstacle)
         {
@@ -183,52 +201,116 @@ void Player::updatePosition()
 
 void Player::updateImage()
 {
-    // If Mario is standing still
-    if (horizontalSpeed == 0 && !isJumping)
-    {
-        setPixmap(QPixmap(standImagePath).scaled(40, 60));  // Standing still image
+    if (isBig) {
+        if (isJumping) {
+            QPixmap jumpPixmap(bigJumpImagePath);
+            if (facingLeft) {
+                QTransform transform;
+                transform.scale(-1, 1);
+                jumpPixmap = jumpPixmap.transformed(transform);
+            }
+            setPixmap(jumpPixmap.scaled(50, 75)); // Adjust for big Mario
+        } else if (horizontalSpeed == 0) {  // Standing still
+            QPixmap standPixmap(bigStandImagePath);
+            if (facingLeft) {
+                QTransform transform;
+                transform.scale(-1, 1);
+                standPixmap = standPixmap.transformed(transform);
+            }
+            setPixmap(standPixmap.scaled(50, 75)); // Adjust for big Mario
+        }
+    } else {
+        if (isJumping) { // Small Mario Jumping
+            QPixmap jumpPixmap(jumpImagePath);
+            if (facingLeft) {
+                QTransform transform;
+                transform.scale(-1, 1);
+                jumpPixmap = jumpPixmap.transformed(transform);
+            }
+            setPixmap(jumpPixmap.scaled(40, 50));
+        } else if (horizontalSpeed == 0) {  // Small Mario standing still
+            QPixmap standPixmap(standImagePath);
+            if (facingLeft) {
+                QTransform transform;
+                transform.scale(-1, 1);
+                standPixmap = standPixmap.transformed(transform);
+            }
+            setPixmap(standPixmap.scaled(40, 50));
+        }
     }
-    else if (isJumping)  // If Mario is jumping
+    if (isJumping)  // If Mario is jumping
     {
-        setPixmap(QPixmap(jumpImagePath).scaled(40, 60));  // Jump image
+        QPixmap jumpPixmap(jumpImagePath);
+        if (facingLeft)  // Invert image if facing left
+        {
+            QTransform transform;
+            transform.scale(-1, 1);
+            jumpPixmap = jumpPixmap.transformed(transform);
+        }
+        setPixmap(jumpPixmap.scaled(40, 50)); // Reduced size
+    }
+    else if (horizontalSpeed == 0)  // Standing still
+    {
+        QPixmap standPixmap(standImagePath);
+        if (facingLeft)  // Invert image if facing left
+        {
+            QTransform transform;
+            transform.scale(-1, 1);
+            standPixmap = standPixmap.transformed(transform);
+        }
+        setPixmap(standPixmap.scaled(40, 50)); // Reduced size
     }
 }
+
+
 
 void Player::toggleImage()
 {
-    // Only toggle images if Mario is moving (left or right)
-    if (horizontalSpeed != 0 && !isJumping)
+    if (!isJumping && horizontalSpeed != 0)  // Only toggle walking images if not jumping
     {
         QString walkingImage;
-        if (horizontalSpeed > 0)  // Moving right
+
+        // Select walking images based on the toggle state
+        if (m_imageToggle)
         {
-            // Toggle between walk images for right movement
-            walkingImage = (m_imageToggle) ? ":/Resources/img/mario-small-walk-0.png" : ":/Resources/img/mario-small-walk-1.png";
+            walkingImage = ":/Resources/img/mario-small-walk-0.png";
         }
-        else  // Moving left
+        else
         {
-            // Toggle between walk images for left movement (mirrored)
-            walkingImage = (m_imageToggle) ? ":/Resources/img/mario-small-walk-0.png" : ":/Resources/img/mario-small-walk-2.png";
+            walkingImage = m_imageToggle ? ":/Resources/img/mario-small-walk-1.png" : ":/Resources/img/mario-small-walk-2.png";
         }
 
-        // Set the current walking image for Mario
         QPixmap playerImage(walkingImage);
-        if (horizontalSpeed > 0)  // If moving right, apply no mirror effect
-        {
-            playerImage = playerImage.scaled(40, 60);
-        }
-        else  // If moving left, apply mirror effect
+
+        // Adjust image orientation based on the last direction
+        if (facingLeft)  // If Mario is facing left, invert the image
         {
             QTransform transform;
-            transform.scale(-1, 1);  // Flip the image horizontally
-            playerImage = playerImage.transformed(transform).scaled(40, 60);
+            transform.scale(-1, 1);
+            playerImage = playerImage.transformed(transform);
         }
 
-        this->setPixmap(playerImage);  // Set the updated image for Mario
+        // Update Mario's pixmap with the scaled and oriented image
+        setPixmap(playerImage.scaled(40, 50)); // Reduced size
 
-        m_imageToggle = !m_imageToggle;  // Toggle the flag for the next update
+        // Toggle the flag for the next image update
+        m_imageToggle = !m_imageToggle;
+    }
+    else if (!isJumping && horizontalSpeed == 0)  // When idle
+    {
+        // Ensure the idle state respects the direction Mario is facing
+        QPixmap idlePixmap(standImagePath);
+        if (facingLeft)  // Invert if facing left
+        {
+            QTransform transform;
+            transform.scale(-1, 1);
+            idlePixmap = idlePixmap.transformed(transform);
+        }
+
+        setPixmap(idlePixmap.scaled(40, 50)); // Reduced size
     }
 }
+
 
 void Player::stopMovement()
 {
@@ -236,4 +318,3 @@ void Player::stopMovement()
     verticalVelocity = 0;
     isJumping = false;
 }
-

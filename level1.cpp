@@ -36,6 +36,7 @@ Level1::~Level1()
         delete obstacle;
 }
 
+
 int Level1::getScore()
 {
     return score;
@@ -56,7 +57,7 @@ void Level1::initLevel()
     scene->setSceneRect(0, 0, 3000, 600); // Extended level width
 
     // Set the background image for the scene
-    QPixmap backgroundPixmap(":/Resources/img/sky.png");
+    QPixmap backgroundPixmap(":/Resources/img/a.jpg");
     QGraphicsPixmapItem *backgroundItem = new QGraphicsPixmapItem();
     backgroundItem->setPixmap(backgroundPixmap.scaled(3000, 600));
     backgroundItem->setPos(0, 0);
@@ -81,7 +82,7 @@ void Level1::initLevel()
         }
 
         float xPos = i * 50;
-        Obstacle *obstacle = new Obstacle(":/Resources/img/block.png", xPos, 480);
+        Obstacle *obstacle = new Obstacle(":/Resources/img/brick2.bmp", xPos, 480);
         obstacles.append(obstacle);
         scene->addItem(obstacle);
     }
@@ -92,7 +93,7 @@ void Level1::initLevel()
             continue;
         }
         float xPos = i * 50;
-        Obstacle *obstacle = new Obstacle(":/Resources/img/block.png", xPos, 570);
+        Obstacle *obstacle = new Obstacle(":/Resources/img/brick2.bmp", xPos, 570);
         obstacles.append(obstacle);
         scene->addItem(obstacle);
     }
@@ -103,12 +104,12 @@ void Level1::initLevel()
             continue;
         }
         float xPos = i * 50;
-        Obstacle *obstacle = new Obstacle(":/Resources/img/block.png", xPos, 525);
+        Obstacle *obstacle = new Obstacle(":/Resources/img/brick2.bmp", xPos, 525);
         obstacles.append(obstacle);
         scene->addItem(obstacle);
     }
     // Add obstacles to the scene
-    for (int i = 0; i < 10; ++i)
+    for (int i = 0; i < 15; ++i)
     {
         float xPos = 500+i * 50;
         Obstacle *obstacle = new Obstacle(":/Resources/img/block.png", xPos, 300);
@@ -123,6 +124,21 @@ void Level1::initLevel()
         obstacles.append(obstacle);
         scene->addItem(obstacle);
     }
+    // Add obstacles to the scene to form a filled staircase
+    for (int row = 0; row < 6; ++row) // 10 rows for the staircase
+    {
+        for (int col = 0; col < 6 - row; ++col) // Decrease blocks per row as we go up
+        {
+            float xPos = 2100 + col * 50;         // Horizontal position
+            float yPos = 430 - row * 50;         // Vertical position increases with each row
+            Obstacle *obstacle = new Obstacle(":/Resources/img/block.png", xPos, yPos);
+            obstacle->setZValue(60);
+            obstacles.append(obstacle);
+            scene->addItem(obstacle);
+        }
+    }
+
+
     // Add the castle at the end of the level
     castle = new QGraphicsPixmapItem();
     QPixmap castleImage(":/Resources/img/castle.png");
@@ -191,7 +207,7 @@ void Level1::initLevel()
         float yPos = 440;  // Place them on the ground
         Goomba *goomba = new Goomba(":/Resources/img/goomba-0.png",
                                     ":/Resources/img/goomba-dead.png",
-                                    xPos, yPos, 300);
+                                    xPos, yPos, 300,1);
         scene->addItem(goomba);
 
         // Connect gameTimer to update the Goomba
@@ -207,7 +223,21 @@ void Level1::initLevel()
         float yPos = 440;  // Place them on the ground
         Goomba *goomba = new Goomba(":/Resources/img/goomba-0.png",
                                     ":/Resources/img/goomba-dead.png",
-                                    xPos, yPos, 300);  // Maximum 300px movement in either direction
+                                    xPos, yPos, 300,1);  // Maximum 300px movement in either direction
+        scene->addItem(goomba);
+
+        // Connect gameTimer to update the Goomba
+        connect(gameTimer, &QTimer::timeout, [goomba, player = this->player]() {
+            goomba->update(player);
+        });
+    }
+    for (int i = 0; i < 2; ++i)
+    {
+        float xPos = 500+ i * 400;
+        float yPos = 260;  // Place them on the ground
+        Goomba *goomba = new Goomba(":/Resources/img/goomba-0.png",
+                                    ":/Resources/img/goomba-dead.png",
+                                    xPos, yPos, 200,1);  // Maximum 300px movement in either direction
         scene->addItem(goomba);
 
         // Connect gameTimer to update the Goomba
@@ -216,8 +246,8 @@ void Level1::initLevel()
         });
     }
 
-
 }
+
 
 void Level1::startGame()
 {
@@ -265,6 +295,7 @@ void Level1::updateGame()
             break;
         }
     }
+
     // Collision detection with coins
     for (int i = 0; i < coins.size(); ++i)
     {
@@ -291,11 +322,10 @@ void Level1::updateGame()
 
         // Show a victory message
         QMessageBox::information(this, "You Won!", "Congratulations Mario, you have completed the level!");
+        // Emit signal to notify level completion
+        qDebug() << "Level 1 completed!";
+        emit levelCompleted();
 
-        // Close Level1 and open the store dialog
-        this->close(); // Close the current Level1 widget
-        Store *store = new Store(this);
-        store->exec(); // Open the store as a modal dialog
     }
 
 }

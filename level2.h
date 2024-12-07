@@ -1,5 +1,5 @@
-#ifndef LEVEL1_H
-#define LEVEL1_H
+#ifndef LEVEL2_H
+#define LEVEL2_H
 
 #include <QWidget>
 #include <QGraphicsView>
@@ -17,19 +17,21 @@
 class Player;
 class Obstacle;
 
-class Level1 : public QWidget
+class Level2 : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit Level1(QWidget *parent = nullptr);
-    ~Level1();
+    explicit Level2(QWidget *parent = nullptr);
+    ~Level2();
 
     void startGame();
     int getScore();
     void decreaseScore(int amount);
+
 signals:
-    void levelCompleted();  // Signal emitted when level is completed
+    void level2Completed();  // Signal emitted when level is completed
+
 protected:
     void keyPressEvent(QKeyEvent *event) override;
     void keyReleaseEvent(QKeyEvent *event) override;
@@ -51,8 +53,8 @@ private:
     QAudioOutput *audioOutput;  // Audio output to manage volume and playback
     int score;
     int level;
-     QList<Coins *> coins;     // List to store coins
+    QList<Coins *> coins;     // List to store coins
     QList<Collectable*> mushrooms;
 };
 
-#endif // LEVEL1_H
+#endif // LEVEL2_H

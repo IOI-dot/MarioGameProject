@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "Level1.h" // Include Level1
+#include "LevelManager.h"
 
 class MainWindow : public QMainWindow
 {
@@ -13,7 +13,7 @@ public:
     ~MainWindow();
 
 private:
-    Level1 *gameLevel;  // Pointer to the Level1 class or game window
+    LevelManager *levelManager;
 };
 
-#endif // MAINWINDOW_H
+#endif // MAINWINDOW_
