@@ -40,7 +40,11 @@ void Level4::decreaseScore(int amount)
 {
     score -= amount;
 }
-
+void Level4::setScore(int newScore)
+{
+    score = newScore;
+    scoreLabel->setText("Score: " + QString::number(score));  // Update the score display
+}
 void Level4::initLevel()
 {
     this->setWindowTitle("Level 4");
@@ -249,7 +253,7 @@ void Level4::initLevel()
         scene->addItem(obstacle);
     }
     // Set up the score and level labels
-    scoreLabel = new QLabel("Score: 0", this);
+    scoreLabel = new QLabel("Score: " + QString::number(score), this);
     levelLabel = new QLabel("Level: 4", this);
     scoreLabel->setStyleSheet("font-size: 16px; font-weight: bold;");
     levelLabel->setStyleSheet("font-size: 16px; font-weight: bold;");
@@ -275,8 +279,7 @@ void Level4::initLevel()
 
 void Level4::startGame()
 {
-    score = 0;
-    scoreLabel->setText("Score: 0");
+    scoreLabel->setText("Score: " + QString::number(score));
     gameTimer->start(16);  // ~60 FPS (16 ms per frame)
     musicPlayer->play();
 }
@@ -342,6 +345,6 @@ void Level4::updateGame()
         gameTimer->stop();
         player->hide();
         QMessageBox::information(this, "You Won!", "Congratulations Mario, you have completed Level 4!");
-        emit level4Completed();
+        emit level4Completed(score);
     }
 }

@@ -13,8 +13,6 @@ LevelManager::LevelManager(QWidget *parent)
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->addWidget(stackedWidget);
     this->setLayout(layout);
-
-    startLevel1();  // Start with Level 1
 }
 
 LevelManager::~LevelManager()
@@ -33,7 +31,7 @@ void LevelManager::startLevel1()
     level1->startGame();
 }
 
-void LevelManager::startLevel2()
+void LevelManager::startLevel2(int score)
 {
     if (!level2)
     {
@@ -41,11 +39,13 @@ void LevelManager::startLevel2()
         connect(level2, &Level2::level2Completed, this, &LevelManager::startLevel3);
         stackedWidget->addWidget(level2);
     }
+    qDebug()<<score;
+    level2->setScore(score);
     stackedWidget->setCurrentWidget(level2);
     level2->startGame();
 }
 
-void LevelManager::startLevel3()
+void LevelManager::startLevel3(int score)
 {
     if (!level3)
     {
@@ -53,11 +53,12 @@ void LevelManager::startLevel3()
         connect(level3, &Level3::level3Completed, this, &LevelManager::startLevel4);
         stackedWidget->addWidget(level3);
     }
+    level3->setScore(score);
     stackedWidget->setCurrentWidget(level3);
     level3->startGame();
 }
 
-void LevelManager::startLevel4()
+void LevelManager::startLevel4(int score)
 {
     if (!level4)
     {
@@ -65,11 +66,12 @@ void LevelManager::startLevel4()
         connect(level4, &Level4::level4Completed, this, &LevelManager::startLevel5);  // Connect to Level 5
         stackedWidget->addWidget(level4);
     }
+    level4->setScore(score);
     stackedWidget->setCurrentWidget(level4);
     level4->startGame();
 }
 
-void LevelManager::startLevel5()
+void LevelManager::startLevel5(int score)
 {
     if (!level5)
     {
@@ -77,6 +79,7 @@ void LevelManager::startLevel5()
         connect(level5, &Level5::level5Completed, this, &LevelManager::startLevel1);  // Loop back to Level 1
         stackedWidget->addWidget(level5);
     }
+    level5->setScore(score);
     stackedWidget->setCurrentWidget(level5);
     level5->startGame();
 }

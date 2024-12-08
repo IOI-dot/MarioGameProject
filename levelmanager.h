@@ -18,10 +18,10 @@ public:
     ~LevelManager();
 
     void startLevel1();
-    void startLevel2();
-    void startLevel3();
-    void startLevel4();
-    void startLevel5();  // New method for Level 5
+    void startLevel2(int);
+    void startLevel3(int);
+    void startLevel4(int);
+    void startLevel5(int);  // New method for Level 5
 
 private:
     QStackedWidget *stackedWidget;

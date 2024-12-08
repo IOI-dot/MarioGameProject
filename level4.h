@@ -26,11 +26,11 @@ public:
     ~Level4();
 
     void startGame();
-
+ void setScore(int score);
     int getScore();
     void decreaseScore(int amount);
 signals:
-    void level4Completed();  // Signal emitted when level is completed
+    void level4Completed(int);  // Signal emitted when level is completed
 
 protected:
     void keyPressEvent(QKeyEvent *event) override;

@@ -29,11 +29,9 @@ public:
     void startGame();
     int getScore();
     void decreaseScore(int amount);
-    void Setlives(int);
-    int GetLives(); //Getters and Setters
   //  void ShowStore(bool show);
 signals:
-    void level1Completed();  // Signal emitted when level is completed
+    void level1Completed(int score);  // Signal emitted when level is completed
 
 protected:
     void keyPressEvent(QKeyEvent *event) override;
@@ -42,7 +40,7 @@ protected:
 private:
     void initLevel();
     void updateGame();
-
+    void decreaseLives();
     QGraphicsScene *scene;
     QGraphicsView *view;
     Player *player;

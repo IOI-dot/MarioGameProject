@@ -24,13 +24,13 @@ class Level2 : public QWidget
 public:
     explicit Level2(QWidget *parent = nullptr);
     ~Level2();
-
+     void setScore(int score);
     void startGame();
     int getScore();
     void decreaseScore(int amount);
 
 signals:
-    void level2Completed();  // Signal emitted when level is completed
+    void level2Completed(int);  // Signal emitted when level is completed
 
 protected:
     void keyPressEvent(QKeyEvent *event) override;
@@ -39,7 +39,6 @@ protected:
 private:
     void initLevel();
     void updateGame();
-
     QGraphicsScene *scene;
     QGraphicsView *view;
     Player *player;

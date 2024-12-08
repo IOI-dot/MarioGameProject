@@ -54,6 +54,9 @@
         <file>img/goomba-0.png</file>
         <file>img/goomba-dead.png</file>
         <file>img/coin-1.png</file>
+        <file>img/Super_Mario_Bros._2_-_NES_-_Game_Over.png</file>
+        <file>img/WhatsApp Image 2024-12-07 at 6.58.32 PM.jpg</file>
+        <file>img/mario-small-fall.png</file>
     </qresource>
     <qresource prefix="/">
         <file>sounds/02. Underground Theme.mp3</file>
@@ -63,5 +66,6 @@
         <file>sounds/05. Invincibility Theme.mp3</file>
         <file>sounds/07. Castle Complete.mp3</file>
         <file>sounds/12. Ground Theme (Hurry!).mp3</file>
+        <file>sounds/08. Lost a Life.mp3</file>
     </qresource>
 </RCC>

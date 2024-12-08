@@ -39,7 +39,11 @@ void Level5::decreaseScore(int amount)
 {
     score -= amount;
 }
-
+void Level5::setScore(int newScore)
+{
+    score = newScore;
+    scoreLabel->setText("Score: " + QString::number(score));  // Update the score display
+}
 void Level5::initLevel()
 {
     this->setWindowTitle("Level 5");
@@ -184,7 +188,7 @@ void Level5::initLevel()
         });
     }
     // Set up the score and level labels
-    scoreLabel = new QLabel("Score: 0", this);
+    scoreLabel = new QLabel("Score: " + QString::number(score), this);
     levelLabel = new QLabel("Level: 5", this);
     scoreLabel->setStyleSheet("font-size: 16px; font-weight: bold;");
     levelLabel->setStyleSheet("font-size: 16px; font-weight: bold;");
@@ -210,8 +214,7 @@ void Level5::initLevel()
 
 void Level5::startGame()
 {
-    score = 0;
-    scoreLabel->setText("Score: 0");
+    scoreLabel->setText("Score: " + QString::number(score));
     gameTimer->start(16);  // ~60 FPS (16 ms per frame)
     musicPlayer->play();
 }

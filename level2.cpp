@@ -47,7 +47,11 @@ void Level2::decreaseScore(int amount)
 {
     score -= amount;
 }
-
+void Level2::setScore(int newScore)
+{
+    score = newScore;
+    scoreLabel->setText("Score: " + QString::number(score));  // Update the score display
+}
 void Level2::initLevel()
 {
     this->setWindowTitle("Level 2");
@@ -236,11 +240,12 @@ void Level2::initLevel()
         });
     }
     // Set up the score and level labels
-    scoreLabel = new QLabel("Score: 0", this);
+    scoreLabel = new QLabel("Score: " + QString::number(score), this);
+    qDebug()<<score;
     levelLabel = new QLabel("Level: 2", this);
 
-    scoreLabel->setStyleSheet("font-size: 16px; font-weight: bold;");
     levelLabel->setStyleSheet("font-size: 16px; font-weight: bold;");
+    scoreLabel->setStyleSheet("font-size: 16px; font-weight: bold;");
 
     QHBoxLayout *labelLayout = new QHBoxLayout();
     labelLayout->addWidget(levelLabel);
@@ -268,8 +273,7 @@ void Level2::initLevel()
 
 void Level2::startGame()
 {
-    score = 0;
-    scoreLabel->setText("Score: 0");
+    scoreLabel->setText("Score: " + QString::number(score));
     gameTimer->start(16); // ~60 FPS (16 ms per frame)
     musicPlayer->play();
 }
@@ -331,6 +335,6 @@ void Level2::updateGame()
 
         // Show a victory message
         QMessageBox::information(this, "You Won!", "Congratulations Mario, you have completed the level!");
-        emit level2Completed();
+        emit level2Completed(score);
     }
 }

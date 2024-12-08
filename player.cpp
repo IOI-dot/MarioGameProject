@@ -7,6 +7,7 @@
 #include "obstacle.h"
 #include <QTimer>
 #include "collectables.h"
+#include "over.h"
 Player::Player(QObject *parent)
     : QObject(parent), horizontalSpeed(0), jumpSpeed(20), gravity(1), groundLevel(500), verticalVelocity(0), isJumping(false), m_imageToggle(true), facingLeft(false)
 {
@@ -97,6 +98,7 @@ void Player::bounce()
 void Player::handleCollision()
 {
     setPos(100, 420); // Reset position
+
 }
 
 void Player::landOn(float groundY)

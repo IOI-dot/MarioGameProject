@@ -22,10 +22,12 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     obstacle.cpp \
+    over.cpp \
     piranha.cpp \
     player.cpp \
     powerups.cpp \
     score.cpp \
+    start.cpp \
     store.cpp \
     turtle.cpp \
     turtlefly.cpp
@@ -44,18 +46,20 @@ HEADERS += \
     levelmanager.h \
     mainwindow.h \
     obstacle.h \
+    over.h \
     piranha.h \
     player.h \
     powerups.h \
     score.h \
+    start.h \
     store.h \
     turtle.h \
     turtlefly.h
 
 FORMS += \
-    Player.ui \
-    level2.ui \
     mainwindow.ui \
+    over.ui \
+    start.ui \
     store.ui
 
 # Default rules for deployment.

@@ -55,10 +55,7 @@ void Goomba::update(Player *player)
 
             // Adjust position to keep Goomba on the ground
 
-                setPos(x(), y()+20);
-
-
-                 setPos(x(), y()+20);
+                setPos(x(), y()+17);
 
             // Start flickering effect
             startFlickering();

@@ -24,11 +24,11 @@ public:
     ~Level3();
 
     void startGame();
-
+     void setScore(int score);
     int getScore();
     void decreaseScore(int amount);
 signals:
-    void level3Completed();  // Signal emitted when level is completed
+    void level3Completed(int);  // Signal emitted when level is completed
 
 protected:
     void keyPressEvent(QKeyEvent *event) override;
@@ -40,7 +40,6 @@ private slots:
 
 private:
     void initLevel();
-
     QGraphicsScene *scene;
     QGraphicsView *view;
     Player *player;

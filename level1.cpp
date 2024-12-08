@@ -46,26 +46,6 @@ void Level1::decreaseScore(int amount)
     score -= amount;
 }
 
-/*void Level1::ShowStore(bool show)
-{
-    if (show)
-    {
-        store->show();
-        this->hide(); // Hide the game UI while the store is visible
-    }
-    else
-    {
-        store->hide();
-        this->show(); // Show the game UI when the store is hidden
-    }
-}
-*/
-int Level1::GetLives(){
-    return lives;
-}
-void Level1::Setlives(int l){
-    lives = l;
-}
 void Level1::initLevel()
 {
     this->setWindowTitle("Level 1");
@@ -101,7 +81,7 @@ void Level1::initLevel()
         }
 
         float xPos = i * 50;
-        Obstacle *obstacle = new Obstacle(":/Resources/img/block.png", xPos, 480);
+        Obstacle *obstacle = new Obstacle(":/Resources/img/brick2.bmp", xPos, 480);
         obstacles.append(obstacle);
         scene->addItem(obstacle);
     }
@@ -112,7 +92,7 @@ void Level1::initLevel()
             continue;
         }
         float xPos = i * 50;
-        Obstacle *obstacle = new Obstacle(":/Resources/img/block.png", xPos, 570);
+        Obstacle *obstacle = new Obstacle(":/Resources/img/brick2.bmp", xPos, 570);
         obstacles.append(obstacle);
         scene->addItem(obstacle);
     }
@@ -123,7 +103,7 @@ void Level1::initLevel()
             continue;
         }
         float xPos = i * 50;
-        Obstacle *obstacle = new Obstacle(":/Resources/img/block.png", xPos, 525);
+        Obstacle *obstacle = new Obstacle(":/Resources/img/brick2.bmp", xPos, 525);
         obstacles.append(obstacle);
         scene->addItem(obstacle);
     }
@@ -155,13 +135,9 @@ void Level1::initLevel()
     // Set up the score and level labels
     scoreLabel = new QLabel("Score: 0", this);
     levelLabel = new QLabel("Level: 1", this);
-    QString str = QString::number(lives);
-    liveLabel =new QLabel("Lives: "+str, this);
 
     scoreLabel->setStyleSheet("font-size: 16px; font-weight: bold;");
     levelLabel->setStyleSheet("font-size: 16px; font-weight: bold;");
-    liveLabel->setStyleSheet("font-size: 16px; font-weight: bold;");
-
     QHBoxLayout *labelLayout = new QHBoxLayout();
     labelLayout->addWidget(levelLabel);
     labelLayout->addWidget(scoreLabel);
@@ -317,7 +293,8 @@ void Level1::updateGame()
         QMessageBox::information(this, "You Won!", "Congratulations Mario, you have completed the level!");
 
         // Close Level1 and open the store dialog
-        emit level1Completed();
+        qDebug()<<score;
+        emit level1Completed(score);
     }
 
 }

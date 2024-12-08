@@ -26,7 +26,7 @@ public:
     ~Level5();
 
     void startGame();
-
+ void setScore(int score);
     int getScore();
     void decreaseScore(int amount);
 signals:
@@ -42,7 +42,6 @@ private slots:
 
 private:
     void initLevel();
-
     QGraphicsScene *scene;
     QGraphicsView *view;
     Player *player;

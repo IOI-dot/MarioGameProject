@@ -47,7 +47,11 @@ void Level3::decreaseScore(int amount)
 {
     score -= amount;
 }
-
+void Level3::setScore(int newScore)
+{
+    score = newScore;
+    scoreLabel->setText("Score: " + QString::number(score));  // Update the score display
+}
 void Level3::initLevel()
 {
     this->setWindowTitle("Level 3");
@@ -219,7 +223,7 @@ void Level3::initLevel()
 
 
     // Set up the score and level labels
-    scoreLabel = new QLabel("Score: 0", this);
+    scoreLabel = new QLabel("Score: " + QString::number(score), this);
     levelLabel = new QLabel("Level: 3", this);
 
     scoreLabel->setStyleSheet("font-size: 16px; font-weight: bold;");
@@ -253,8 +257,7 @@ void Level3::initLevel()
 void Level3::startGame()
 {
 
-    score = 0;
-    scoreLabel->setText("Score: 0");
+    scoreLabel->setText("Score: " + QString::number(score));
     gameTimer->start(16); // ~60 FPS (16 ms per frame)
     musicPlayer->play();
 }
@@ -322,9 +325,6 @@ void Level3::updateGame()
 
         // Show a victory message
         QMessageBox::information(this, "You Won!", "Congratulations Mario, you have completed Level 3!");
-        this->close();
-        Store* store =new Store(this);
-        store->exec();
-        emit level3Completed();
+        emit level3Completed(score);
     }
 }
