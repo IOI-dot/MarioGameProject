@@ -325,6 +325,9 @@ void Level3::updateGame()
 
         // Show a victory message
         QMessageBox::information(this, "You Won!", "Congratulations Mario, you have completed Level 3!");
+        this->close();
+        Store* store=new Store(this);
+        store->exec();
         emit level3Completed(score);
     }
 }

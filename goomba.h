@@ -27,6 +27,7 @@ public:
     void startFlickering();
     void toggleVisibility();
     void remove();
+    bool helper;
 
     // Helper method to switch the Goomba's images to create the walking effect
     void toggleImage();

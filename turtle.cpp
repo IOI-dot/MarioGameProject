@@ -52,10 +52,10 @@ void Turtle::update(Player *player)
                             playerRect.right() > turtleRect.left();
 
         bool fallingCollision = playerRect.bottom() - 21 <= turtleRect.top();  // Adjust for falling collision
-
         if (topCollision || fallingCollision)
         {
             // Mario stomps the Turtle
+            player->helper2 = false;
             setAlive(false);
             setPixmap(QPixmap(m_deadImagePath).scaled(40, 20)); // Squished Turtle image
 
@@ -67,6 +67,7 @@ void Turtle::update(Player *player)
         else
         {
             // Mario gets hit by the Turtle
+               player->helper2=true;
             player->handleCollision();
         }
     }

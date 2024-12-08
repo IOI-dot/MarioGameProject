@@ -190,6 +190,7 @@ void Level5::initLevel()
     // Set up the score and level labels
     scoreLabel = new QLabel("Score: " + QString::number(score), this);
     levelLabel = new QLabel("Level: 5", this);
+    // Initialize the lives label
     scoreLabel->setStyleSheet("font-size: 16px; font-weight: bold;");
     levelLabel->setStyleSheet("font-size: 16px; font-weight: bold;");
 
@@ -201,6 +202,14 @@ void Level5::initLevel()
     mainLayout->addLayout(labelLayout);
     mainLayout->addWidget(view);
     this->setLayout(mainLayout);
+    //Initialize the Game Over image
+    gameOverImage = new QGraphicsPixmapItem();
+    QPixmap gameOverPixmap(":/Resources/img/Super_Mario_Bros._2_-_NES_-_Game_Over.png");
+    gameOverImage->setPixmap(gameOverPixmap.scaled(this->size(), Qt::KeepAspectRatio));
+    gameOverImage->setPos(0, 0);
+    gameOverImage->setZValue(100);  // Make sure it's on top
+    gameOverImage->setVisible(false);  // Initially hidden
+    scene->addItem(gameOverImage);
 
     // Initialize the media player for background music
     musicPlayer = new QMediaPlayer(this);
@@ -258,7 +267,6 @@ void Level5::updateGame()
             break;
         }
     }
-
     // Collision detection with coins
     for (int i = 0; i < coins.size(); ++i)
     {
@@ -287,4 +295,36 @@ void Level5::updateGame()
         gameTimer->stop();
         QMessageBox::information(this, "You Won!", "Congratulations Mario, you have rescued the Princess!");
     }
+}
+void Level5::endGame()
+{
+    // Stop the game timer and music
+    musicPlayer->stop();
+    musicPlayer->setSource(QUrl("qrc:/sounds/08. Lost a Life.mp3"));
+    musicPlayer->play();
+    gameTimer->stop();
+    // Hide the player
+    player->hide();
+    for (auto obstacle : obstacles) obstacle->setVisible(false);  // Hide obstacles
+    for (auto coin : coins) coin->setVisible(false);  // Hide coins
+    for (auto enemy : scene->items())  // Hide all enemies (Turtles, Goombas, etc.)
+    {
+        if (dynamic_cast<Turtle*>(enemy) || dynamic_cast<Goomba*>(enemy)) {
+            enemy->setVisible(false);
+        }
+    }
+    // Hide the background image
+    QGraphicsPixmapItem* backgroundItem = nullptr;
+    for (auto item : scene->items()) {
+        backgroundItem = dynamic_cast<QGraphicsPixmapItem*>(item);
+        if (backgroundItem) {
+            backgroundItem->setVisible(false);
+            break;
+        }
+    }
+    // Show the Game Over image
+    gameOverImage->setZValue(600);
+    gameOverImage->setVisible(true);
+    view->centerOn(100, 360);
+
 }

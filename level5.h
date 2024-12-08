@@ -29,6 +29,7 @@ public:
  void setScore(int score);
     int getScore();
     void decreaseScore(int amount);
+      void endGame();
 signals:
     void level5Completed();  // Signal emitted when level is completed
 
@@ -48,12 +49,15 @@ private:
     QTimer *gameTimer;
     QLabel *scoreLabel;
     QLabel *levelLabel;
+    QLabel *livesLabel;
+    QGraphicsPixmapItem *gameOverImage;
     QGraphicsPixmapItem *castle;
     QVector<Obstacle*> obstacles;
     QGraphicsPixmapItem *oldcastle;
     QVector<Coins*> coins;
     QVector<Turtle*> turtles;
     int score;
+    int lives;
     int level;
     QMediaPlayer *musicPlayer;
     QAudioOutput *audioOutput;

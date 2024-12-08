@@ -46,11 +46,11 @@ void Goomba::update(Player *player)
                             playerRect.right() > goombaRect.left();
 
         bool fallingCollision = playerRect.bottom() - 21 <= goombaRect.top();  // Adjust for falling collision
-
         if (topCollision || fallingCollision)
         {
             // Mario stomps Goomba
             setAlive(false);
+            player->helper2=false;
             setPixmap(QPixmap(m_deadImagePath).scaled(40, 20)); // Squished Goomba image
 
             // Adjust position to keep Goomba on the ground
@@ -64,6 +64,7 @@ void Goomba::update(Player *player)
         else
         {
             // Mario gets hit by the Goomba
+            player->helper2=true;
             player->handleCollision();
         }
     }

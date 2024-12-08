@@ -73,6 +73,7 @@ void Fireball::handlePlayerCollision(Player *player) {
 
         if (topCollision) {
             // Mario collides with the Piranha Plant
+            player->helper2=false;
             player->handleCollision();  // Reset Mario's position
         }
     }

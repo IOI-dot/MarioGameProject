@@ -39,7 +39,7 @@ public:
     // Key events
     void keyPressEvent(QKeyEvent *event);
     void keyReleaseEvent(QKeyEvent *event);
-
+     bool helper2 ;
     // Movement and actions
     void jump();
     void bounce();

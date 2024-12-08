@@ -338,28 +338,6 @@ void Level2::updateGame()
             --i; // Adjust index due to removal
         }
     }
-    // Collision detection with enemies (e.g., turtles, goombas)
-    QList<QGraphicsItem*> enemies = scene->items();
-    for (auto enemy : enemies)
-    {
-        if (dynamic_cast<Turtle*>(enemy) || dynamic_cast<Goomba*>(enemy)) // Check if the enemy is a Turtle or Goomba
-        {
-            if (player->collidesWithItem(enemy))
-            {
-                // Decrease lives and update label
-                lives--;
-                livesLabel->setText("Lives: " + QString::number(lives));
-                player->handleCollision();
-
-                // If player has no lives left, end the game
-                if (lives == 0)
-                {
-                    endGame();  // Call the function to end the game
-                    return;
-                }
-            }
-        }
-    }
     if (player->x() + player->boundingRect().width() / 2 >= castle->x() + castle->boundingRect().width() / 2)
     {
         // Stop the game

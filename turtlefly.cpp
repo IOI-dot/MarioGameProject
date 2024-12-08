@@ -48,11 +48,13 @@ void TurtleFly::update(Player *player)
         if (topCollision) {
             // Mario stomps the TurtleFly
             setAlive(false);
+            player->helper2=true;
             setPixmap(QPixmap(m_deadImagePath).scaled(40, 20)); // Dead TurtleFly image
             startFlickering(); // Start flickering effect
             player->bounce();   // Mario bounces after stomping
         } else {
             // Mario gets hit by the TurtleFly
+            player->helper2=false;
             player->handleCollision();
         }
     }
