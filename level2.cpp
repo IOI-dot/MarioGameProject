@@ -239,6 +239,11 @@ void Level2::initLevel()
             turtle->update(player);
         });
     }
+    lives = 3;  // Start with 3 lives
+
+    // Initialize the lives label
+    livesLabel = new QLabel("Lives: " + QString::number(lives), this);
+    livesLabel->setStyleSheet("font-size: 16px; font-weight: bold;");
     // Set up the score and level labels
     scoreLabel = new QLabel("Score: " + QString::number(score), this);
     qDebug()<<score;
@@ -250,13 +255,20 @@ void Level2::initLevel()
     QHBoxLayout *labelLayout = new QHBoxLayout();
     labelLayout->addWidget(levelLabel);
     labelLayout->addWidget(scoreLabel);
-
+    labelLayout->addWidget(livesLabel);  // Add lives label here
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->addLayout(labelLayout);
     mainLayout->addWidget(view);
 
     this->setLayout(mainLayout);
-
+    //Initialize the Game Over image
+            gameOverImage = new QGraphicsPixmapItem();
+    QPixmap gameOverPixmap(":/Resources/img/Super_Mario_Bros._2_-_NES_-_Game_Over.png");
+    gameOverImage->setPixmap(gameOverPixmap.scaled(this->size(), Qt::KeepAspectRatio));
+    gameOverImage->setPos(0, 0);
+    gameOverImage->setZValue(100);  // Make sure it's on top
+    gameOverImage->setVisible(false);  // Initially hidden
+    scene->addItem(gameOverImage);
 
     // Initialize the media player for background music
     musicPlayer = new QMediaPlayer(this);
@@ -326,6 +338,28 @@ void Level2::updateGame()
             --i; // Adjust index due to removal
         }
     }
+    // Collision detection with enemies (e.g., turtles, goombas)
+    QList<QGraphicsItem*> enemies = scene->items();
+    for (auto enemy : enemies)
+    {
+        if (dynamic_cast<Turtle*>(enemy) || dynamic_cast<Goomba*>(enemy)) // Check if the enemy is a Turtle or Goomba
+        {
+            if (player->collidesWithItem(enemy))
+            {
+                // Decrease lives and update label
+                lives--;
+                livesLabel->setText("Lives: " + QString::number(lives));
+                player->handleCollision();
+
+                // If player has no lives left, end the game
+                if (lives == 0)
+                {
+                    endGame();  // Call the function to end the game
+                    return;
+                }
+            }
+        }
+    }
     if (player->x() + player->boundingRect().width() / 2 >= castle->x() + castle->boundingRect().width() / 2)
     {
         // Stop the game
@@ -337,4 +371,36 @@ void Level2::updateGame()
         QMessageBox::information(this, "You Won!", "Congratulations Mario, you have completed the level!");
         emit level2Completed(score);
     }
+}
+void Level2::endGame()
+{
+    // Stop the game timer and music
+    musicPlayer->stop();
+    musicPlayer->setSource(QUrl("qrc:/sounds/08. Lost a Life.mp3"));
+    musicPlayer->play();
+    gameTimer->stop();
+    // Hide the player
+    player->hide();
+    for (auto obstacle : obstacles) obstacle->setVisible(false);  // Hide obstacles
+    for (auto coin : coins) coin->setVisible(false);  // Hide coins
+    for (auto enemy : scene->items())  // Hide all enemies (Turtles, Goombas, etc.)
+    {
+        if (dynamic_cast<Turtle*>(enemy) || dynamic_cast<Goomba*>(enemy)) {
+            enemy->setVisible(false);
+        }
+    }
+    // Hide the background image
+    QGraphicsPixmapItem* backgroundItem = nullptr;
+    for (auto item : scene->items()) {
+        backgroundItem = dynamic_cast<QGraphicsPixmapItem*>(item);
+        if (backgroundItem) {
+            backgroundItem->setVisible(false);
+            break;
+        }
+    }
+    // Show the Game Over image
+    gameOverImage->setZValue(600);
+    gameOverImage->setVisible(true);
+    view->centerOn(100, 360);
+
 }

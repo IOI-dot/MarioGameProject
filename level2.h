@@ -28,7 +28,7 @@ public:
     void startGame();
     int getScore();
     void decreaseScore(int amount);
-
+    void endGame();
 signals:
     void level2Completed(int);  // Signal emitted when level is completed
 
@@ -39,6 +39,9 @@ protected:
 private:
     void initLevel();
     void updateGame();
+    int lives;  // Player's lives
+    QLabel *livesLabel;
+    QGraphicsPixmapItem *gameOverImage;
     QGraphicsScene *scene;
     QGraphicsView *view;
     Player *player;
